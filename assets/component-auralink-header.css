@@ -188,6 +188,75 @@
   letter-spacing: 0.02em;
 }
 
+/* AuraLink Language Slider (Figma Node 2655:276 / 2899:1097) */
+.auralink-lang-slider-wrapper {
+  display: inline-flex;
+  align-items: center;
+}
+
+.auralink-lang-form {
+  margin: 0;
+  padding: 0;
+  display: inline-flex;
+}
+
+.auralink-lang-slider {
+  display: inline-flex;
+  align-items: center;
+  position: relative;
+  height: 46px;
+  border-radius: var(--auralink-radius-pill, 100px);
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  -webkit-backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  padding: 3px;
+  gap: 2px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.04);
+  box-sizing: border-box;
+}
+
+.auralink-lang-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  min-width: 38px;
+  padding: 0 12px;
+  border-radius: var(--auralink-radius-pill, 100px);
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--auralink-color-dark, #000000);
+  letter-spacing: 0.01em;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  user-select: none;
+}
+
+.auralink-lang-btn:hover {
+  opacity: 0.75;
+}
+
+.auralink-lang-btn:focus-visible {
+  outline: 2px solid var(--auralink-color-dark, #000000);
+  outline-offset: 2px;
+}
+
+.auralink-lang-btn--active {
+  background: var(--auralink-color-accent, #F2FE63);
+  color: #000000;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  opacity: 1 !important;
+}
+
+.auralink-lang-btn--active:hover {
+  opacity: 1;
+}
+
 /* Action Buttons (Cart, Search, Account) */
 .header__icon {
   width: 46px;
