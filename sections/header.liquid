@@ -1,3 +1,5 @@
+<link rel="stylesheet" href="{{ 'component-auralink-header.css' | asset_url }}" media="print" onload="this.media='all'">
+{{ 'component-auralink-header.css' | asset_url | stylesheet_tag }}
 <link rel="stylesheet" href="{{ 'component-list-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -146,7 +148,7 @@
   {% if header_tag == 'sticky-header' %}
     data-sticky-type="{{ section.settings.sticky_header_type }}"
   {% endif %}
-  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}"
+  class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}{% if section.settings.enable_transparent_overlay and request.page_type == 'index' %} header-wrapper--overlay{% endif %}"
 >
   {%- liquid
     assign social_links = false
@@ -205,7 +207,14 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <span class="h2 auralink-brand-title">
+            {%- assign name_downcase = shop.name | downcase -%}
+            {%- if name_downcase contains 'auralink' or name_downcase contains 'speedtest' -%}
+              <span class="brand-aura">aura</span><span class="brand-link">link</span>
+            {%- else -%}
+              {{ shop.name }}
+            {%- endif -%}
+          </span>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -248,7 +257,14 @@
             }}
           </div>
         {%- else -%}
-          <span class="h2">{{ shop.name }}</span>
+          <span class="h2 auralink-brand-title">
+            {%- assign name_downcase = shop.name | downcase -%}
+            {%- if name_downcase contains 'auralink' or name_downcase contains 'speedtest' -%}
+              <span class="brand-aura">aura</span><span class="brand-link">link</span>
+            {%- else -%}
+              {{ shop.name }}
+            {%- endif -%}
+          </span>
         {%- endif -%}
       </a>
       {%- if request.page_type == 'index' -%}
@@ -300,11 +316,7 @@
       {%- endfor -%}
 
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
-        {% if cart == empty %}
-          <span class="svg-wrapper">{{ 'icon-cart-empty.svg' | inline_asset_content }}</span>
-        {% else %}
-          <span class="svg-wrapper">{{ 'icon-cart.svg' | inline_asset_content }}</span>
-        {% endif %}
+        <span class="svg-wrapper">{% render 'icon-cart-aura' %}</span>
         <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
         {%- if cart != empty -%}
           <div class="cart-count-bubble">
@@ -600,6 +612,13 @@
       "id": "show_line_separator",
       "default": true,
       "label": "t:sections.header.settings.show_line_separator.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_transparent_overlay",
+      "default": true,
+      "label": "Transparent overlay on home page",
+      "info": "Positions navbar directly over the hero section on the home page."
     },
     {
       "type": "header",

@@ -75,9 +75,25 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "auralink_hero": {
+      "type": "auralink-hero",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Your Smart Home\nSafe - Seamless. and Secure",
+        "subheading": "Discover the latest smart home devices designed to simplify your life,  and optimize energy efficiency.",
+        "button_label": "Get started",
+        "button_link": "/collections/all",
+        "tag_1": "Smart",
+        "tag_2": "Safe",
+        "tag_3": "Secure",
+        "padding_top": 16,
+        "padding_bottom": 40
+      }
     }
   },
   "order": [
+    "auralink_hero",
     "image_banner",
     "featured_collection"
   ]

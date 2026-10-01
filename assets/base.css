@@ -11,6 +11,19 @@ collection-component {
   --focused-base-outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   --focused-base-outline-offset: 0.3rem;
   --focused-base-box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
+
+  /* AuraLink Figma Design Tokens (Figma node 2899:1050) */
+  --auralink-color-dark: #000000;
+  --auralink-color-light: #ffffff;
+  --auralink-color-accent: #f2fe63;
+  --auralink-color-muted: #aeaeae;
+  --auralink-color-surface: #f3f3f3;
+  --auralink-color-surface-dark: #17151a;
+  --auralink-color-surface-deep: #11111b;
+  --auralink-radius-pill: 100px;
+  --auralink-radius-badge: 40px;
+  --auralink-radius-section: 32px;
+  --auralink-backdrop-blur: blur(4px);
 }
 
 .product-card-wrapper .card,

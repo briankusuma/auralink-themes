@@ -1,0 +1,259 @@
+/* AuraLink Header Navbar Styles (Figma Node 2899:1086 / 2899:1050) */
+
+.header-wrapper {
+  background: transparent;
+}
+
+/* Ensure the Header Section & Group Stacks Above Main Content / Hero */
+.shopify-section-group-header-group,
+.section-header,
+.shopify-section-group-header-group.section-header {
+  position: relative;
+  z-index: 100 !important;
+}
+
+/* Overlay Header on Hero Section */
+.header-wrapper--overlay {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  width: 100%;
+  z-index: 100 !important;
+  background: transparent !important;
+  border-bottom: none !important;
+  transition: background-color 0.3s ease, backdrop-filter 0.3s ease, box-shadow 0.3s ease, top 0.3s ease;
+}
+
+.header-wrapper--overlay .header {
+  max-width: 1408px;
+  margin: 0 auto;
+  padding: 12px 64px !important;
+}
+
+@media screen and (max-width: 989px) {
+  .header-wrapper--overlay {
+    top: 8px;
+  }
+  .header-wrapper--overlay .header {
+    padding: 10px 24px !important;
+  }
+}
+
+/* Sticky scrolled state for overlay header */
+.shopify-section-header-sticky .header-wrapper--overlay,
+.scrolled-past-header .header-wrapper--overlay {
+  position: fixed;
+  top: 0;
+  background: rgba(255, 255, 255, 0.92) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05) !important;
+}
+
+.shopify-section-header-sticky .header-wrapper--overlay .header,
+.scrolled-past-header .header-wrapper--overlay .header {
+  padding: 10px 48px;
+}
+
+.header {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 16px;
+  position: relative;
+}
+
+/* 1. Left: Menu Navigation */
+.header__inline-menu {
+  justify-self: start;
+}
+
+.header__inline-menu .list-menu--inline {
+  counter-reset: auralink-nav-counter;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.header__inline-menu .list-menu--inline > li {
+  counter-increment: auralink-nav-counter;
+}
+
+.header__inline-menu .header__menu-item {
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: -0.01em;
+  color: var(--auralink-color-dark, #000000);
+  padding: 6px 0;
+  transition: opacity 0.2s ease;
+}
+
+.header__inline-menu .header__menu-item:hover {
+  opacity: 0.7;
+}
+
+.header__inline-menu .list-menu--inline > li > .header__menu-item::before,
+.header__inline-menu .list-menu--inline > li > header-menu > details > summary::before {
+  content: "0" counter(auralink-nav-counter) ". ";
+  color: var(--auralink-color-muted, #aeaeae);
+  font-weight: 500;
+  font-size: 13px;
+  margin-right: 4px;
+}
+
+/* 2. Center: Logo & Brand */
+.header__heading {
+  margin: 0;
+  text-align: center;
+  justify-self: center;
+}
+
+.header__heading-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--auralink-color-dark, #000000);
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.auralink-brand-title {
+  display: inline-flex;
+  align-items: center;
+  letter-spacing: 0.05em;
+  font-size: 24px;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.auralink-brand-title .brand-aura {
+  font-weight: 600;
+}
+
+.auralink-brand-title .brand-link {
+  font-weight: 300;
+  opacity: 0.85;
+}
+
+/* 3. Right: Icons & Localization */
+.header__icons {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Language & Country Capsule */
+.header-localization .localization-form {
+  padding: 0;
+  margin: 0;
+}
+
+.header .disclosure__button.localization-selector {
+  display: inline-flex;
+  align-items: center;
+  height: 46px;
+  padding: 4px 14px;
+  border-radius: var(--auralink-radius-pill, 100px);
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  -webkit-backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  color: var(--auralink-color-dark, #000000);
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  gap: 8px;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.header .disclosure__button.localization-selector:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: translateY(-1px);
+}
+
+.header .disclosure__button.localization-selector span {
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* Action Buttons (Cart, Search, Account) */
+.header__icon {
+  width: 46px;
+  height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  -webkit-backdrop-filter: var(--auralink-backdrop-blur, blur(4px));
+  color: var(--auralink-color-dark, #000000);
+  text-decoration: none;
+  position: relative;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.header__icon:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.05);
+}
+
+.header__icon .svg-wrapper,
+.header__icon svg {
+  width: 22px;
+  height: 22px;
+}
+
+.cart-count-bubble {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background-color: var(--auralink-color-accent, #f2fe63);
+  color: #000000;
+  font-weight: 700;
+  font-size: 11px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+/* Drawer Toggle Button on Mobile */
+header-drawer .header__icon {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(0, 0, 0, 0.12);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 989px) {
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 16px 20px;
+  }
+
+  .header__heading {
+    position: static;
+    transform: none;
+  }
+}
