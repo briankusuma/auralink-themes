@@ -83,12 +83,69 @@
         "padding_top": 40,
         "padding_bottom": 56
       }
+    },
+    "auralink_slider": {
+      "type": "auralink-slider",
+      "blocks": {
+        "slide_1": {
+          "type": "slide",
+          "settings": {
+            "default_asset_image": "slider-product-1.png",
+            "slide_number": "01",
+            "model_code": "A02",
+            "title": "Lumi Glow",
+            "category_tag": "Smart Lights",
+            "description": "These AI-powered lights automatically adjust brightness and color temperature based on the time of day.",
+            "button_label": "View Product",
+            "button_link": "/collections/all"
+          }
+        },
+        "slide_2": {
+          "type": "slide",
+          "settings": {
+            "default_asset_image": "slider-product-2.png",
+            "slide_number": "02",
+            "model_code": "H01",
+            "title": "Control Hub",
+            "category_tag": "Smart Hub",
+            "description": "Intuitive central control unit engineered for high-precision tactile management of all your smart devices.",
+            "button_label": "View Product",
+            "button_link": "/collections/all"
+          }
+        },
+        "slide_3": {
+          "type": "slide",
+          "settings": {
+            "default_asset_image": "slider-product-3.png",
+            "slide_number": "03",
+            "model_code": "D03",
+            "title": "Docking Pad",
+            "category_tag": "Power & Charge",
+            "description": "Seamless multi-device charging station crafted with architectural elegance and intelligent thermal regulation.",
+            "button_label": "View Product",
+            "button_link": "/collections/all"
+          }
+        }
+      },
+      "block_order": [
+        "slide_1",
+        "slide_2",
+        "slide_3"
+      ],
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Discover the latest smart home devices",
+        "subheading": "Transform your home with intelligent devices that learn, adapt, and respond",
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
     "auralink_hero",
     "auralink_bento",
     "auralink_impact",
+    "auralink_slider",
     "featured_collection"
   ]
 }
