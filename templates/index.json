@@ -51,10 +51,26 @@
         "padding_top": 44,
         "padding_bottom": 36
       }
+    },
+    "auralink_bento": {
+      "type": "auralink-bento",
+      "settings": {
+        "color_scheme": "scheme-1",
+        "heading": "Welcome to a Smarter Way of Living",
+        "subheading": "Transforming everyday living",
+        "card_1_text": "AI devices learn your habits and adjust automatically.",
+        "card_2_tag": "Connected Ecosystem",
+        "card_3_heading": "Smart, Safe, and Secure",
+        "card_4_stat": "99%",
+        "card_4_text": "Seamless Integration with Your Life",
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
     "auralink_hero",
+    "auralink_bento",
     "featured_collection"
   ]
 }
