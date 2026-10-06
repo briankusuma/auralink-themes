@@ -111,12 +111,14 @@
   margin-bottom: 6px;
 }
 
-.product-card-wrapper .card__heading {
+.product-card-wrapper .card__heading,
+.card__heading.text-card,
+.text-card {
   font-family: 'Inter Display', var(--font-heading-family), sans-serif;
-  font-size: 19px;
+  font-size: 18px;
   font-weight: 500;
   letter-spacing: -0.01em;
-  line-height: 1.3;
+  line-height: 1.35;
   margin: 0 0 10px;
 }
 
@@ -279,14 +281,18 @@
   padding-left: 0;
 }
 
-.product__media-item {
+.product__media-item,
+.product-media-container,
+.product__media,
+.product__modal-opener {
   border-radius: 28px;
-  background-color: #F6F5F2;
+  background-color: #F1EFEF !important;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
-.product__media-item img {
+.product__media-item img,
+.product-media-container img {
   border-radius: 28px;
   object-fit: cover;
 }
@@ -295,7 +301,7 @@
 .thumbnail-list__item {
   border-radius: 18px;
   overflow: hidden;
-  background-color: #F6F5F2;
+  background-color: #F1EFEF !important;
   border: 2px solid transparent;
   transition: border-color 0.2s ease, transform 0.2s ease;
 }
@@ -405,31 +411,106 @@
   color: #000000;
 }
 
-/* Primary Add to Cart Button */
-.product-form__submit {
-  border-radius: 100px;
-  background-color: #000000;
-  color: #FFFFFF;
-  font-family: 'Inter', var(--font-body-family), sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  letter-spacing: 0.01em;
-  padding: 18px 36px;
-  border: none;
-  cursor: pointer;
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
-  min-height: 56px;
+/* Product Form Buttons (Add to Cart & Buy it Now Synchronization) */
+.product-form__buttons {
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 12px !important;
+  width: 100% !important;
+  max-width: 100% !important;
 }
 
-.product-form__submit:hover:not([disabled]) {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
-  background-color: #111111;
+.product-form__buttons .product-form__submit,
+.product-form__buttons .shopify-payment-button,
+.product-form__buttons .shopify-payment-button__button,
+.product-form__buttons .shopify-payment-button__button--unbranded,
+.product-form__buttons .shopify-payment-button button,
+.product-form__buttons shopify-buy-it-now-button,
+.product-form__buttons shopify-buy-it-now-button button,
+.product-form__buttons shopify-accelerated-checkout {
+  width: 100% !important;
+  box-sizing: border-box !important;
+}
+
+.product-form__buttons .product-form__submit,
+.product-form__buttons .shopify-payment-button__button,
+.product-form__buttons .shopify-payment-button__button--unbranded,
+.product-form__buttons .shopify-payment-button button,
+.product-form__buttons shopify-buy-it-now-button button {
+  min-height: 54px !important;
+  height: 54px !important;
+  max-height: 54px !important;
+  border-radius: 100px !important;
+  font-family: 'Inter', var(--font-body-family), sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.01em !important;
+  padding: 0 32px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  cursor: pointer !important;
+  text-decoration: none !important;
+  line-height: 1 !important;
+  margin: 0 !important;
+  border: 1.5px solid #000000 !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease !important;
+}
+
+/* Add to Cart Button (Primary / Standalone) */
+.product-form__buttons .product-form__submit {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* Add to Cart Button (Secondary / When dynamic checkout is present) */
+.product-form__buttons .product-form__submit.button--secondary {
+  background-color: transparent !important;
+  color: #000000 !important;
+  border: 1.5px solid #000000 !important;
+  box-shadow: none !important;
+}
+
+.product-form__buttons .product-form__submit.button--secondary:hover:not([disabled]) {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  border-color: #000000 !important;
+  transform: translateY(-1px) !important;
+}
+
+.product-form__buttons .product-form__submit:hover:not([disabled]):not(.button--secondary) {
+  background-color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+}
+
+/* Buy it now / Accelerated checkout button */
+.product-form__buttons .shopify-payment-button__button,
+.product-form__buttons .shopify-payment-button__button--unbranded,
+.product-form__buttons .shopify-payment-button button,
+.product-form__buttons shopify-buy-it-now-button button {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+.product-form__buttons .shopify-payment-button__button:hover:not([disabled]),
+.product-form__buttons .shopify-payment-button__button--unbranded:hover:not([disabled]),
+.product-form__buttons .shopify-payment-button button:hover:not([disabled]),
+.product-form__buttons shopify-buy-it-now-button button:hover:not([disabled]) {
+  background-color: #1a1a1a !important;
+  border-color: #1a1a1a !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+}
+
+.product-form__buttons .product-form__submit::before,
+.product-form__buttons .product-form__submit::after,
+.product-form__buttons .shopify-payment-button__button--unbranded::before,
+.product-form__buttons .shopify-payment-button__button--unbranded::after {
+  display: none !important;
 }
 
 /* Collapsible Content / Accordion */
