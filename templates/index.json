@@ -24,34 +24,6 @@
         "padding_bottom": 40
       }
     },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 44,
-        "padding_bottom": 36
-      }
-    },
     "auralink_bento": {
       "type": "auralink-bento",
       "settings": {
@@ -90,6 +62,7 @@
         "slide_1": {
           "type": "slide",
           "settings": {
+            "product": "",
             "default_asset_image": "slider-product-1.png",
             "slide_number": "01",
             "model_code": "A02",
@@ -103,6 +76,7 @@
         "slide_2": {
           "type": "slide",
           "settings": {
+            "product": "",
             "default_asset_image": "slider-product-2.png",
             "slide_number": "02",
             "model_code": "H01",
@@ -116,6 +90,7 @@
         "slide_3": {
           "type": "slide",
           "settings": {
+            "product": "",
             "default_asset_image": "slider-product-3.png",
             "slide_number": "03",
             "model_code": "D03",
@@ -139,98 +114,12 @@
         "padding_top": 48,
         "padding_bottom": 64
       }
-    },
-    "auralink_testimonials": {
-      "type": "auralink-testimonials",
-      "blocks": {
-        "testimonial_1": {
-          "type": "testimonial",
-          "settings": {
-            "title": "\"Security and comfort finally work together.\"",
-            "quote": "“With facial recognition and smart locks, I never worry about lost keys or unknown visitors. Plus, the whole system works with my voice assistant—it’s seamless and secure.”",
-            "author_name": "Torik Handoko",
-            "author_role": "IT Consultant & Father of Two",
-            "default_avatar": "testimonial-avatar-1.png",
-            "tag_1": "Secure",
-            "tag_2": "Comfort"
-          }
-        },
-        "testimonial_2": {
-          "type": "testimonial",
-          "settings": {
-            "title": "\"Effortless energy savings without lifting a finger.\"",
-            "quote": "“The climate sensors learned our daily routines in just a few days. Our heating bill dropped by nearly 30% while the house always stays at the perfect temperature.”",
-            "author_name": "Elena Rostova",
-            "author_role": "Architect & Sustainability Director",
-            "default_avatar": "testimonial-avatar-2.jpg",
-            "tag_1": "Energy",
-            "tag_2": "Climate"
-          }
-        },
-        "testimonial_3": {
-          "type": "testimonial",
-          "settings": {
-            "title": "\"Peace of mind wherever I travel.\"",
-            "quote": "“Being able to monitor the entire house in real time with end-to-end encryption gives our family genuine peace of mind. Everything connects without delays or bugs.”",
-            "author_name": "Marcus Chen",
-            "author_role": "Product Designer & Smart Home Enthusiast",
-            "default_avatar": "testimonial-avatar-3.jpg",
-            "tag_1": "Privacy",
-            "tag_2": "Connected"
-          }
-        },
-        "testimonial_4": {
-          "type": "testimonial",
-          "settings": {
-            "title": "\"Intuitive and elegant design for the whole family.\"",
-            "quote": "“Even my grandparents find the tactile switches and automated lighting simple to use. The industrial design blends naturally into our interior aesthetics.”",
-            "author_name": "Sarah Jenkins",
-            "author_role": "Interior Stylist & Homeowner",
-            "default_avatar": "testimonial-avatar-4.jpg",
-            "tag_1": "Intuitive",
-            "tag_2": "Aesthetic"
-          }
-        }
-      },
-      "block_order": [
-        "testimonial_1",
-        "testimonial_2",
-        "testimonial_3",
-        "testimonial_4"
-      ],
-      "settings": {
-        "color_scheme": "scheme-1",
-        "heading": "Here’s what people says",
-        "subheading": "Real stories from real homes—discover how our AI-powered devices are making everyday life smarter, safer, and more effortless.",
-        "button_label": "Case study",
-        "button_link": "/collections/all",
-        "autoplay_speed": 5,
-        "padding_top": 48,
-        "padding_bottom": 64
-      }
-    },
-    "auralink_cta": {
-      "type": "auralink-cta",
-      "settings": {
-        "color_scheme": "scheme-1",
-        "heading": "Your Journey to Smarter Living Starts with One Click.",
-        "subheading": "Discover AI-powered devices that adapt to your lifestyle—bringing comfort, security, and efficiency to every corner of your home.",
-        "button_label": "Get started",
-        "button_link": "/collections/all",
-        "default_image": "cta-card-composite.png",
-        "show_badge": true,
-        "padding_top": 48,
-        "padding_bottom": 64
-      }
     }
   },
   "order": [
     "auralink_hero",
     "auralink_bento",
     "auralink_impact",
-    "auralink_slider",
-    "auralink_testimonials",
-    "auralink_cta",
-    "featured_collection"
+    "auralink_slider"
   ]
 }
