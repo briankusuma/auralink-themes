@@ -70,7 +70,6 @@
               style="--animation-order: {{ forloop.index }};"
             {% endif %}
           >
-            {%- assign placeholder_image_index = forloop.index0 | modulo: 6 | plus: 1 -%}
             {% render 'card-collection',
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
