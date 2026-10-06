@@ -114,12 +114,118 @@
         "padding_top": 48,
         "padding_bottom": 64
       }
+    },
+    "auralink_impact_pAJej9": {
+      "type": "auralink-impact",
+      "name": "AuraLink Impact",
+      "settings": {
+        "color_scheme": "",
+        "author_name": "Dr. Dayat Santoso",
+        "author_role": "CEO of NexaTech Innovations",
+        "quote_text": "“The integration of AI into smart home devices is revolutionizing how we interact with our living spaces. These technologies not only bring unprecedented convenience but also optimize energy use.”",
+        "metric_1_stat": "80M+",
+        "metric_1_label": "Product Launched over worldwide",
+        "metric_2_stat": "50+",
+        "metric_2_label": "Countries connected to our ecosystem",
+        "metric_3_stat": "$120M+",
+        "metric_3_label": "raised in Series B funding",
+        "padding_top": 40,
+        "padding_bottom": 56
+      }
+    },
+    "auralink_testimonials_D7it8Y": {
+      "type": "auralink-testimonials",
+      "blocks": {
+        "testimonial_q84ieA": {
+          "type": "testimonial",
+          "settings": {
+            "title": "\"Security and comfort finally work together.\"",
+            "quote": "“With facial recognition and smart locks, I never worry about lost keys or unknown visitors. Plus, the whole system works with my voice assistant—it’s seamless and secure.”",
+            "default_avatar": "testimonial-avatar-1.png",
+            "author_name": "Torik Handoko",
+            "author_role": "IT Consultant & Father of Two",
+            "tag_1": "Secure",
+            "tag_2": "Comfort"
+          }
+        },
+        "testimonial_rg9pdD": {
+          "type": "testimonial",
+          "settings": {
+            "title": "\"Effortless energy savings without lifting a finger.\"",
+            "quote": "“The climate sensors learned our daily routines in just a few days. Our heating bill dropped by nearly 30% while the house always stays at the perfect temperature.”",
+            "default_avatar": "testimonial-avatar-2.jpg",
+            "author_name": "Elena Rostova",
+            "author_role": "Architect & Sustainability Director",
+            "tag_1": "Energy",
+            "tag_2": "Climate"
+          }
+        },
+        "testimonial_czyWRQ": {
+          "type": "testimonial",
+          "settings": {
+            "title": "\"Peace of mind wherever I travel.\"",
+            "quote": "“Being able to monitor the entire house in real time with end-to-end encryption gives our family genuine peace of mind. Everything connects without delays or bugs.”",
+            "default_avatar": "testimonial-avatar-3.jpg",
+            "author_name": "Marcus Chen",
+            "author_role": "Product Designer & Smart Home Enthusiast",
+            "tag_1": "Privacy",
+            "tag_2": "Connected"
+          }
+        },
+        "testimonial_U6dxyV": {
+          "type": "testimonial",
+          "settings": {
+            "title": "\"Intuitive and elegant design for the whole family.\"",
+            "quote": "“Even my grandparents find the tactile switches and automated lighting simple to use. The industrial design blends naturally into our interior aesthetics.”",
+            "default_avatar": "testimonial-avatar-4.jpg",
+            "author_name": "Sarah Jenkins",
+            "author_role": "Interior Stylist & Homeowner",
+            "tag_1": "Intuitive",
+            "tag_2": "Aesthetic"
+          }
+        }
+      },
+      "block_order": [
+        "testimonial_q84ieA",
+        "testimonial_rg9pdD",
+        "testimonial_czyWRQ",
+        "testimonial_U6dxyV"
+      ],
+      "name": "AuraLink Reviews",
+      "settings": {
+        "color_scheme": "",
+        "heading": "Here’s what people says",
+        "subheading": "Real stories from real homes—discover how our AI-powered devices are making everyday life smarter, safer, and more effortless.",
+        "button_label": "Case study",
+        "button_link": "",
+        "autoplay_speed": 5,
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
+    },
+    "auralink_cta_HWPeAh": {
+      "type": "auralink-cta",
+      "name": "AuraLink CTA",
+      "settings": {
+        "color_scheme": "",
+        "default_image": "cta-card-composite.png",
+        "heading": "Your Journey to Smarter Living Starts with One Click.",
+        "subheading": "Discover AI-powered devices that adapt to your lifestyle—bringing comfort, security, and efficiency to every corner of your home.",
+        "button_label": "Get started",
+        "button_link": "",
+        "show_badge": true,
+        "padding_top": 48,
+        "padding_bottom": 64
+      }
     }
   },
   "order": [
     "auralink_hero",
     "auralink_bento",
     "auralink_impact",
-    "auralink_slider"
+    "auralink_slider",
+    "auralink_impact_pAJej9",
+    "auralink_testimonials_D7it8Y",
+    "auralink_cta_HWPeAh"
   ]
 }
