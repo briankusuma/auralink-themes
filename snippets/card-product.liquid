@@ -107,6 +107,21 @@
                 {%- endif -%}
               </div>
             </div>
+          {%- else -%}
+            {%- assign fallback_img_idx = card_product.id | default: 1 | modulo: 6 | plus: 1 -%}
+            {%- assign fallback_img_name = 'product-img-' | append: fallback_img_idx | append: '.png' -%}
+            <div class="card__media">
+              <div class="media media--transparent media--hover-effect">
+                <img
+                  src="{{ fallback_img_name | asset_url }}"
+                  alt="{{ card_product.title | escape }}"
+                  class="auralink-card__fallback-img motion-reduce"
+                  loading="lazy"
+                  width="1048"
+                  height="874"
+                >
+              </div>
+            </div>
           {%- endif -%}
           <div class="card__content">
             <div class="card__information">
@@ -206,7 +221,12 @@
                 </p>
               {%- endif -%}
 
-              {% render 'price', product: card_product, price_class: '', show_compare_at_price: true %}
+              <div class="auralink-card__bottom-row">
+                {% render 'price', product: card_product, price_class: 'auralink-card__price', show_compare_at_price: true %}
+                <a href="{{ card_product.url }}" class="auralink-card__action-btn" aria-label="{{ card_product.title | escape }}">
+                  {% render 'icon-arrow-top-right' %}
+                </a>
+              </div>
               {%- if card_product.quantity_price_breaks_configured? -%}
                 {% if card_product.variants_count == 1 and quick_add == 'bulk' %}
                   {% liquid
@@ -573,52 +593,67 @@
   </product-component>
 {%- else -%}
   {%- liquid
-    assign ratio = 1
-    assign placeholder = true
-    if media_aspect_ratio == 'portrait'
-      assign ratio = 0.8
-    endif
+    assign fallback_placeholder_idx = placeholder_index | default: 1 | modulo: 6 | plus: 1
+    assign fallback_placeholder_name = 'product-img-' | append: fallback_placeholder_idx | append: '.png'
   -%}
   <div class="card-wrapper product-card-wrapper underline-links-hover">
-    <div
-      class="
-        card card--{{ settings.card_style }}
-        {% if extend_height %} card--extend-height{% endif %}
-        {% if image_shape and image_shape != 'default' %} card--shape{% endif %}
-        {% if settings.card_style == 'card' %} color-{{ settings.card_color_scheme }} gradient{% endif %}
-      "
-      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
-    >
-      <div
-        class="card__inner{% if settings.card_style == 'standard' %} color-{{ settings.card_color_scheme }} gradient{% endif %} ratio"
-      >
-        <div
-          class="card__media {% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}"
-        >
-          <div
-            class="media media--transparent"
-          >
-            {%- if placeholder_image -%}
-              {{ placeholder_image | placeholder_svg_tag: 'placeholder-svg' }}
-            {%- else -%}
-              {{ 'product-apparel-2' | placeholder_svg_tag: 'placeholder-svg' }}
-            {% endif %}
+    <div class="card card--card">
+      <div class="card__inner ratio" style="--ratio-percent: 85%;">
+        <span class="auralink-card__badge">
+          {%- case fallback_placeholder_idx -%}
+            {%- when 1 -%}Controller
+            {%- when 2 -%}Power Hub
+            {%- when 3 -%}Smart Audio
+            {%- when 4 -%}Climate
+            {%- when 5 -%}Wireless Dock
+            {%- when 6 -%}Charging Pad
+            {%- else -%}AuraLink
+          {%- endcase -%}
+        </span>
+        <div class="card__media">
+          <div class="media media--transparent">
+            <img
+              src="{{ fallback_placeholder_name | asset_url }}"
+              alt="AuraLink Smart Device"
+              class="auralink-card__fallback-img motion-reduce"
+              loading="lazy"
+              width="1048"
+              height="874"
+            >
           </div>
         </div>
       </div>
       <div class="card__content">
         <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
+          <span class="auralink-card__vendor">AuraLink Ecosystem</span>
+          <h3 class="card__heading">
             <a role="link" aria-disabled="true" class="full-unstyled-link">
-              {{ 'onboarding.product_title' | t }}
+              {%- case fallback_placeholder_idx -%}
+                {%- when 1 -%}AuraLink Core Controller
+                {%- when 2 -%}Smart Power Adapter Hub
+                {%- when 3 -%}AuraLink Ambient Sound Radio
+                {%- when 4 -%}Smart Console & Thermostat Hub
+                {%- when 5 -%}Dual Wireless Charging Stand
+                {%- when 6 -%}Smart Inductive Charging Pad
+                {%- else -%}AuraLink Smart Device
+              {%- endcase -%}
             </a>
           </h3>
-          <div class="card-information">
-            {%- if show_vendor -%}
-              <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
-              <div class="caption-with-letter-spacing light">{{ 'products.product.vendor' | t }}</div>
-            {%- endif -%}
-            {% render 'price', placeholder: placeholder, show_compare_at_price: true %}
+          <div class="auralink-card__bottom-row">
+            <span class="auralink-card__price">
+              {%- case fallback_placeholder_idx -%}
+                {%- when 1 -%}$129.00
+                {%- when 2 -%}$49.00
+                {%- when 3 -%}$189.00
+                {%- when 4 -%}$219.00
+                {%- when 5 -%}$79.00
+                {%- when 6 -%}$59.00
+                {%- else -%}$99.00
+              {%- endcase -%}
+            </span>
+            <span class="auralink-card__action-btn" aria-hidden="true">
+              {% render 'icon-arrow-top-right' %}
+            </span>
           </div>
         </div>
       </div>
