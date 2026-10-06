@@ -467,6 +467,87 @@
   }
 }
 
+/* --------------------------------------------------------------------------
+   5. FEATURED COLLECTION SECTION ENHANCEMENTS
+   -------------------------------------------------------------------------- */
+.auralink-featured-header {
+  margin-bottom: 36px;
+}
+
+.auralink-featured-header__tag-wrap {
+  margin-bottom: 14px;
+}
+
+.auralink-featured-header .auralink-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 16px;
+  background-color: #F5F3F0;
+  color: #000000;
+  border-radius: 100px;
+  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.auralink-featured-header h2.title {
+  font-family: 'Inter', var(--font-heading-family), sans-serif;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: #000000;
+  line-height: 1.15;
+  margin: 0 0 10px;
+}
+
+.auralink-featured-header .collection__description {
+  font-size: 16px;
+  color: #666666;
+  max-width: 620px;
+  line-height: 1.55;
+  margin: 0;
+}
+
+.collection__view-all {
+  margin-top: 40px;
+}
+
+.auralink-view-all-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 100px;
+  background-color: #000000;
+  color: #FFFFFF;
+  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+}
+
+.auralink-view-all-btn svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.auralink-view-all-btn:hover {
+  background-color: #F2FE63;
+  color: #000000;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(242, 254, 99, 0.3);
+}
+
+.auralink-view-all-btn:hover svg {
+  transform: translate(3px, -3px);
+}
+
 @media screen and (max-width: 600px) {
   .product-card-wrapper .card {
     padding: 12px;
@@ -489,13 +570,21 @@
     width: 32px;
     height: 32px;
   }
+
+  .auralink-view-all-btn {
+    width: 100%;
+    padding: 14px 24px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
   .product-card-wrapper .card,
   .product-card-wrapper .card__inner img,
   .auralink-card__action-btn,
-  .product-form__submit {
+  .product-form__submit,
+  .auralink-view-all-btn,
+  .auralink-view-all-btn svg {
     transition: none;
   }
 }
+

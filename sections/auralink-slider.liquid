@@ -79,7 +79,16 @@
                   height="569"
                 >
               {%- else -%}
-                {{ 'product-apparel-1' | placeholder_svg_tag: 'auralink-slider__placeholder' }}
+                {%- assign slider_fallback_idx = forloop.index0 | modulo: 6 | plus: 1 -%}
+                {%- assign slider_fallback_img = 'product-img-' | append: slider_fallback_idx | append: '.png' -%}
+                <img
+                  src="{{ slider_fallback_img | asset_url }}"
+                  alt="{{ slide_title | escape }}"
+                  class="auralink-slider__image"
+                  loading="lazy"
+                  width="1048"
+                  height="874"
+                >
               {%- endif -%}
             </div>
 
