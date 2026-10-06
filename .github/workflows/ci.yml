@@ -10,10 +10,19 @@ jobs:
   lhci:
     name: Lighthouse
     runs-on: ubuntu-latest
-    if: ${{ secrets.SHOP_STORE_OS2 != '' && secrets.SHOP_ACCESS_TOKEN != '' }}
     steps:
       - uses: actions/checkout@v4
+      - name: Check Secrets
+        id: check_secrets
+        run: |
+          if [ -z "${{ secrets.SHOP_STORE_OS2 }}" ] || [ -z "${{ secrets.SHOP_ACCESS_TOKEN }}" ]; then
+            echo "has_secrets=false" >> $GITHUB_OUTPUT
+            echo "Skipping Lighthouse CI: SHOP_STORE_OS2 and SHOP_ACCESS_TOKEN secrets are not configured in repository."
+          else
+            echo "has_secrets=true" >> $GITHUB_OUTPUT
+          fi
       - name: Lighthouse
+        if: steps.check_secrets.outputs.has_secrets == 'true'
         uses: shopify/lighthouse-ci-action@v1
         with:
           store: ${{ secrets.SHOP_STORE_OS2 }}
@@ -22,6 +31,7 @@ jobs:
           collection_handle: all
           lhci_github_app_token: ${{ secrets.LHCI_GITHUB_TOKEN }}
           pull_theme: ${{ secrets.SHOP_PULL_THEME }}
+
   theme-check:
     name: Theme Check
     runs-on: ubuntu-latest
