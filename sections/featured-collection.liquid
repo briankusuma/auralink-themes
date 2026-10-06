@@ -39,9 +39,20 @@
 {%- endstyle -%}
 
 {%- liquid
+  assign target_collection = section.settings.collection
+  if target_collection == blank and section.settings.products == blank
+    if collections['auralink-ecosystem'] != blank and collections['auralink-ecosystem'].all_products_count > 0
+      assign target_collection = collections['auralink-ecosystem']
+    elsif collections['frontpage'] != blank and collections['frontpage'].all_products_count > 0
+      assign target_collection = collections['frontpage']
+    elsif collections['all'] != blank and collections['all'].all_products_count > 0
+      assign target_collection = collections['all']
+    endif
+  endif
+
   assign display_products = section.settings.products
-  if display_products == blank and section.settings.collection != blank and section.settings.collection.all_products_count > 0
-    assign display_products = section.settings.collection.products
+  if display_products == blank and target_collection != blank and target_collection.all_products_count > 0
+    assign display_products = target_collection.products
   endif
 
   assign has_real_products = false
@@ -91,14 +102,18 @@
         <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
           {{ section.settings.title }}
         </h2>
+      {%- elsif target_collection.title != blank -%}
+        <h2 class="title inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
+          {{ target_collection.title }}
+        </h2>
       {%- endif -%}
       {%- if section.settings.description != blank
         or section.settings.show_description
-        and section.settings.collection.description != empty
+        and target_collection.description != empty
       -%}
         <div class="collection__description {{ section.settings.description_style }} rte{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
-          {%- if section.settings.show_description and section.settings.collection.description != blank -%}
-            {{ section.settings.collection.description }}
+          {%- if section.settings.show_description and target_collection.description != blank -%}
+            {{ target_collection.description }}
           {%- else -%}
             {{ section.settings.description -}}
           {%- endif %}
@@ -202,7 +217,7 @@
     </slider-component>
 
     {%- if section.settings.show_view_all -%}
-      {%- assign view_all_url = section.settings.button_link | default: section.settings.collection.url | default: routes.all_products_collection_url -%}
+      {%- assign view_all_url = section.settings.button_link | default: target_collection.url | default: section.settings.collection.url | default: routes.all_products_collection_url -%}
       {%- assign view_all_label = section.settings.button_label | default: 'sections.featured_collection.view_all' | t -%}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
