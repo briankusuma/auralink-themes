@@ -16,6 +16,13 @@
         "price": {
           "type": "price"
         },
+        "inventory": {
+          "type": "inventory",
+          "settings": {
+            "inventory_threshold": 10,
+            "show_inventory_quantity": true
+          }
+        },
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
@@ -47,6 +54,7 @@
         "vendor",
         "title",
         "price",
+        "inventory",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
