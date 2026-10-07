@@ -32,6 +32,31 @@ if (!customElements.get('product-form')) {
         delete config.headers['Content-Type'];
 
         const formData = new FormData(this.form);
+
+        if (this.form.id) {
+          document.querySelectorAll(`[form="${this.form.id}"]`).forEach((element) => {
+            if (element.name && !element.disabled && !formData.has(element.name)) {
+              if (element.type === 'radio' || element.type === 'checkbox') {
+                if (element.checked) formData.append(element.name, element.value);
+              } else if (element.value) {
+                formData.append(element.name, element.value);
+              }
+            }
+          });
+        }
+
+        const productInfo = this.closest('product-info') || document.querySelector(`product-info[data-section="${this.dataset.sectionId}"]`);
+        if (productInfo && !formData.has('selling_plan')) {
+          const sellingPlanInput = productInfo.querySelector('input[name="selling_plan"]:checked, select[name="selling_plan"], input[type="hidden"][name="selling_plan"]:not([disabled])');
+          if (sellingPlanInput && sellingPlanInput.value) {
+            formData.append('selling_plan', sellingPlanInput.value);
+          }
+        }
+
+        if (formData.has('selling_plan') && !formData.get('selling_plan')) {
+          formData.delete('selling_plan');
+        }
+
         if (this.cart) {
           formData.append(
             'sections',
