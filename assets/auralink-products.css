@@ -89,6 +89,15 @@
   border: none;
   box-shadow: none;
   pointer-events: none;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.product-card-wrapper .card:hover .auralink-card__badge,
+.card-wrapper .card:hover .auralink-card__badge,
+.card:hover .auralink-card__badge,
+.product-card-wrapper:hover .auralink-card__badge {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
 }
 
 .auralink-card__badge--sold-out {
@@ -115,6 +124,15 @@
   line-height: 1.2 !important;
   border: none !important;
   box-shadow: none !important;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+.product-card-wrapper .card:hover .card__badge .badge:not(.badge--sold-out),
+.card-wrapper .card:hover .card__badge .badge:not(.badge--sold-out),
+.card:hover .card__badge .badge:not(.badge--sold-out),
+.product-card-wrapper:hover .card__badge .badge:not(.badge--sold-out) {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
 }
 
 .card__badge .badge.color-scheme-4,
@@ -737,6 +755,8 @@
 @media (prefers-reduced-motion: reduce) {
   .product-card-wrapper .card,
   .product-card-wrapper .card__inner img,
+  .auralink-card__badge,
+  .card__badge .badge,
   .auralink-card__action-btn,
   .product-form__submit,
   .auralink-view-all-btn,
