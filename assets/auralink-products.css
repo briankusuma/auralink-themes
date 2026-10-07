@@ -684,7 +684,7 @@
 }
 
 /* ========================================================
-   Search Modal & Predictive Search Bar (Figma #F2FE63 Accent)
+   Search Modal & Predictive Search Bar
    ======================================================== */
 .search .field,
 .search-modal .field,
@@ -694,7 +694,7 @@
   align-items: center !important;
   width: 100% !important;
   border-radius: 100px !important;
-  border: 1.5px solid #F2FE63 !important;
+  border: 1.5px solid #FFFFFF !important;
   background-color: #FFFFFF !important;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05) !important;
   transition: border-color 0.2s ease, box-shadow 0.2s ease !important;
@@ -710,8 +710,8 @@
 .search .field:focus-within,
 .search-modal .field:focus-within,
 .search-modal__form .field:focus-within {
-  border-color: #F2FE63 !important;
-  box-shadow: 0 0 0 3px rgba(242, 254, 99, 0.35), 0 4px 14px rgba(0, 0, 0, 0.08) !important;
+  border-color: #FFFFFF !important;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5), 0 4px 14px rgba(0, 0, 0, 0.08) !important;
 }
 
 /* Symmetrical padding, no vertical jump */
@@ -862,5 +862,21 @@
 .search-modal .reset__button .icon {
   height: 16px !important;
   width: 16px !important;
+}
+
+/* Predictive Search: margin-top 12px, border-radius 32px */
+.predictive-search,
+.predictive-search--header,
+.predictive-search--search-template {
+  margin-top: 12px !important;
+  border-radius: 32px !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1) !important;
+  overflow: hidden !important;
+}
+
+#predictive-search-results {
+  border-radius: 32px !important;
+  overflow: hidden !important;
 }
 
