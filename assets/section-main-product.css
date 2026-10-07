@@ -381,6 +381,25 @@ a.product__text {
 }
 
 /* Product media */
+.product__media-wrapper .product-media-container,
+.product__media-wrapper .product__media,
+.product__media-wrapper .product__modal-opener,
+.product__media-wrapper .product__media-item {
+  border-radius: 32px;
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  overflow: hidden;
+}
+
+.product__media-wrapper .product-media-container:after {
+  display: none;
+}
+
+.product__media-wrapper .product__media img {
+  border-radius: 32px;
+}
+
 .product__media-list video {
   border-radius: calc(var(--media-radius) - var(--media-border-width));
 }
