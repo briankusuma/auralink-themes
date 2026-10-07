@@ -67,7 +67,7 @@
   transform: scale(1.05);
 }
 
-/* AuraLink Badge on Card */
+/* AuraLink Badge on Card & Featured Devices */
 .auralink-card__badge {
   position: absolute;
   top: 14px;
@@ -75,22 +75,53 @@
   z-index: 2;
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border-radius: 100px;
-  background-color: #F2FE63;
-  color: #000000;
-  font-family: 'Inter', var(--font-body-family), sans-serif;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: 40px;
+  background-color: #F2FE63 !important;
+  color: #000000 !important;
+  font-family: 'Inter', var(--font-body-family), sans-serif !important;
+  font-size: 13px;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  line-height: 1.2;
+  border: none;
+  box-shadow: none;
   pointer-events: none;
 }
 
 .auralink-card__badge--sold-out {
-  background-color: #000000;
-  color: #FFFFFF;
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
+}
+
+/* Native Card Badge / Collection Badge */
+.card__badge .badge,
+.card-wrapper .badge,
+.product-card-wrapper .badge {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 6px 10px !important;
+  border-radius: 40px !important;
+  background-color: #F2FE63 !important;
+  color: #000000 !important;
+  font-family: 'Inter', var(--font-body-family), sans-serif !important;
+  font-size: 13px !important;
+  font-weight: 400 !important;
+  letter-spacing: -0.01em !important;
+  text-transform: none !important;
+  line-height: 1.2 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.card__badge .badge.color-scheme-4,
+.card-wrapper .badge--sold-out,
+.badge--sold-out {
+  background-color: #000000 !important;
+  color: #FFFFFF !important;
 }
 
 /* Card Content / Information */
@@ -597,15 +628,24 @@
 .auralink-featured-header .auralink-pill {
   display: inline-flex;
   align-items: center;
-  padding: 6px 16px;
-  background-color: #F5F3F0;
+  justify-content: center;
+  gap: 10px;
+  padding: 6px 10px;
+  background-color: transparent;
   color: #000000;
-  border-radius: 100px;
+  border-radius: 40px;
   font-family: 'Inter', var(--font-body-family), sans-serif;
-  font-size: 13px;
-  font-weight: 600;
-  letter-spacing: 0.02em;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.auralink-featured-header .auralink-pill--badge,
+.auralink-featured-header .auralink-pill.badge {
+  background-color: #F2FE63 !important;
+  color: #000000 !important;
+  border: none !important;
 }
 
 .auralink-featured-header h2.title {
