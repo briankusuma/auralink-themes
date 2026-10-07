@@ -425,21 +425,31 @@
 .product-form__buttons .shopify-payment-button__button,
 .product-form__buttons .shopify-payment-button__button--unbranded,
 .product-form__buttons .shopify-payment-button button,
+.product-form__buttons .shopify-payment-button [role='button'],
 .product-form__buttons shopify-buy-it-now-button,
 .product-form__buttons shopify-buy-it-now-button button,
+.product-form__buttons shopify-buy-it-now-button [role='button'],
 .product-form__buttons shopify-accelerated-checkout {
   width: 100% !important;
+  max-width: 100% !important;
   box-sizing: border-box !important;
+}
+
+.product-form__buttons shopify-accelerated-checkout,
+.product-form__buttons shopify-buy-it-now-button {
+  display: block !important;
 }
 
 .product-form__buttons .product-form__submit,
 .product-form__buttons .shopify-payment-button__button,
 .product-form__buttons .shopify-payment-button__button--unbranded,
 .product-form__buttons .shopify-payment-button button,
-.product-form__buttons shopify-buy-it-now-button button {
-  min-height: 54px !important;
-  height: 54px !important;
-  max-height: 54px !important;
+.product-form__buttons .shopify-payment-button [role='button'],
+.product-form__buttons shopify-buy-it-now-button button,
+.product-form__buttons shopify-buy-it-now-button [role='button'] {
+  min-height: 56px !important;
+  height: 56px !important;
+  max-height: 56px !important;
   border-radius: 100px !important;
   font-family: 'Inter', var(--font-body-family), sans-serif !important;
   font-size: 16px !important;
@@ -490,7 +500,9 @@
 .product-form__buttons .shopify-payment-button__button,
 .product-form__buttons .shopify-payment-button__button--unbranded,
 .product-form__buttons .shopify-payment-button button,
-.product-form__buttons shopify-buy-it-now-button button {
+.product-form__buttons .shopify-payment-button [role='button'],
+.product-form__buttons shopify-buy-it-now-button button,
+.product-form__buttons shopify-buy-it-now-button [role='button'] {
   background-color: #000000 !important;
   color: #FFFFFF !important;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
@@ -499,7 +511,9 @@
 .product-form__buttons .shopify-payment-button__button:hover:not([disabled]),
 .product-form__buttons .shopify-payment-button__button--unbranded:hover:not([disabled]),
 .product-form__buttons .shopify-payment-button button:hover:not([disabled]),
-.product-form__buttons shopify-buy-it-now-button button:hover:not([disabled]) {
+.product-form__buttons .shopify-payment-button [role='button']:hover:not([disabled]),
+.product-form__buttons shopify-buy-it-now-button button:hover:not([disabled]),
+.product-form__buttons shopify-buy-it-now-button [role='button']:hover:not([disabled]) {
   background-color: #1a1a1a !important;
   border-color: #1a1a1a !important;
   transform: translateY(-1px) !important;
