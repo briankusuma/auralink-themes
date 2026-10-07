@@ -10,9 +10,10 @@
   height: 100%;
 }
 
-.product-card-wrapper .card {
+.product-card-wrapper .card,
+.card-wrapper .card {
   background-color: #FFFFFF;
-  border-radius: 28px;
+  border-radius: 32px !important;
   border: 1px solid rgba(0, 0, 0, 0.06);
   padding: 16px;
   box-sizing: border-box;
@@ -664,9 +665,10 @@
 }
 
 @media screen and (max-width: 600px) {
-  .product-card-wrapper .card {
+  .product-card-wrapper .card,
+  .card-wrapper .card {
     padding: 12px;
-    border-radius: 20px;
+    border-radius: 32px !important;
   }
 
   .product-card-wrapper .card__inner {
