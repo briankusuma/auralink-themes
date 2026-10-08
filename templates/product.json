@@ -54,14 +54,14 @@
         "subscriptions_app_block_9TjcJj": {
           "type": "shopify://apps/subscriptions/blocks/app-block/a3bfe9ec-96f8-4508-a003-df608a36d2ad",
           "settings": {
-            "widget_style": "card",
+            "widget_style": "button",
             "widget_style_card_selector": "radio_button",
             "subscription_policy_url": "",
             "color_text_body": "#6d7175",
             "dividers_color": "#8f8d8d",
             "background_color": "#ffffff",
             "border_thickness": 1,
-            "border_radius": 0,
+            "border_radius": 32,
             "product": "{{product}}"
           }
         },
