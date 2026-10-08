@@ -587,6 +587,17 @@
           >
             {{ 'sections.cart.checkout' | t }}
           </button>
+
+          <a
+            href="{{ routes.cart_url }}"
+            id="CartDrawer-ViewCart"
+            class="cart__checkout-button button"
+            {% if cart == empty %}
+              aria-disabled="true"
+            {% endif %}
+          >
+            {{ 'general.cart.view_empty_cart' | t }}
+          </a>
         </div>
       </div>
     </div>

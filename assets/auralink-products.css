@@ -495,35 +495,47 @@
   border-color: #000000;
 }
 
-/* Quantity Input Capsule */
+/* Quantity Input Capsule (Figma node 3250:240) */
 .quantity {
   border-radius: 100px;
-  background-color: #F5F3F0;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  background-color: transparent;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   padding: 4px;
-  width: 140px;
+  width: 131px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
 .quantity__button {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   border-radius: 50%;
+  background-color: #F2FE63;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #000000;
-  transition: background-color 0.2s ease;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 .quantity__button:hover {
-  background-color: rgba(0, 0, 0, 0.08);
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .quantity__input {
   font-family: 'Inter', var(--font-body-family), sans-serif;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 16px;
   color: #000000;
+  text-align: center;
+  background-color: transparent;
+  border: none;
 }
 
 /* Product Form Buttons (Add to Cart & Buy it Now Synchronization) */
