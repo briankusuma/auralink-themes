@@ -6,11 +6,13 @@
 /* --------------------------------------------------------------------------
    1. PRODUCT CARD (Grid & Collection)
    -------------------------------------------------------------------------- */
-.product-card-wrapper {
+.product-card-wrapper,
+.collection-card-wrapper {
   height: 100%;
 }
 
 .product-card-wrapper .card,
+.collection-card-wrapper .card,
 .card-wrapper .card {
   background-color: #FFFFFF;
   border-radius: 32px !important;
@@ -25,14 +27,16 @@
   height: 100%;
 }
 
-.product-card-wrapper .card:hover {
+.product-card-wrapper .card:hover,
+.collection-card-wrapper .card:hover {
   transform: translateY(-6px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08);
   border-color: rgba(0, 0, 0, 0.12);
 }
 
 /* Card Media Container */
-.product-card-wrapper .card__inner {
+.product-card-wrapper .card__inner,
+.collection-card-wrapper .card__inner {
   border-radius: 20px;
   background-color: #F6F5F2;
   overflow: hidden;
@@ -44,7 +48,8 @@
   justify-content: center;
 }
 
-.product-card-wrapper .card__inner .media {
+.product-card-wrapper .card__inner .media,
+.collection-card-wrapper .card__inner .media {
   background-color: transparent;
   width: 100%;
   height: 100%;
@@ -53,7 +58,9 @@
 }
 
 .product-card-wrapper .card__inner img,
-.product-card-wrapper .card__inner .auralink-card__fallback-img {
+.collection-card-wrapper .card__inner img,
+.product-card-wrapper .card__inner .auralink-card__fallback-img,
+.collection-card-wrapper .card__inner .auralink-card__fallback-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -63,7 +70,9 @@
 }
 
 .product-card-wrapper .card:hover .card__inner img,
-.product-card-wrapper .card:hover .card__inner .auralink-card__fallback-img {
+.collection-card-wrapper .card:hover .card__inner img,
+.product-card-wrapper .card:hover .card__inner .auralink-card__fallback-img,
+.collection-card-wrapper .card:hover .card__inner .auralink-card__fallback-img {
   transform: scale(1.05);
 }
 
@@ -162,6 +171,7 @@
 }
 
 .product-card-wrapper .card__heading,
+.collection-card-wrapper .card__heading,
 .card__heading.text-card,
 .text-card {
   font-family: 'Inter Display', var(--font-heading-family), sans-serif;
@@ -172,13 +182,15 @@
   margin: 0 0 10px;
 }
 
-.product-card-wrapper .card__heading a {
+.product-card-wrapper .card__heading a,
+.collection-card-wrapper .card__heading a {
   color: #000000;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
-.product-card-wrapper .card__heading a:hover {
+.product-card-wrapper .card__heading a:hover,
+.collection-card-wrapper .card__heading a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 
@@ -222,7 +234,8 @@
   flex-shrink: 0;
 }
 
-.product-card-wrapper .card:hover .auralink-card__action-btn {
+.product-card-wrapper .card:hover .auralink-card__action-btn,
+.collection-card-wrapper .card:hover .auralink-card__action-btn {
   background-color: #F2FE63;
   color: #000000;
   transform: scale(1.08);
@@ -234,7 +247,8 @@
   transition: transform 0.25s ease;
 }
 
-.product-card-wrapper .card:hover .auralink-card__action-btn svg {
+.product-card-wrapper .card:hover .auralink-card__action-btn svg,
+.collection-card-wrapper .card:hover .auralink-card__action-btn svg {
   transform: translate(1px, -1px);
 }
 
@@ -865,16 +879,19 @@ quantity-popover .quantity__input,
 
 @media screen and (max-width: 600px) {
   .product-card-wrapper .card,
+  .collection-card-wrapper .card,
   .card-wrapper .card {
     padding: 12px;
     border-radius: 32px !important;
   }
 
-  .product-card-wrapper .card__inner {
+  .product-card-wrapper .card__inner,
+  .collection-card-wrapper .card__inner {
     border-radius: 16px;
   }
 
-  .product-card-wrapper .card__heading {
+  .product-card-wrapper .card__heading,
+  .collection-card-wrapper .card__heading {
     font-size: 16px;
   }
 

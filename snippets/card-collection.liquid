@@ -39,17 +39,31 @@
       {% if card_collection.featured_image %} card--media{% else %} card--text{% endif %}
       {% if card_style == 'card' %} color-{{ card_color_scheme }} gradient{% endif %}
       {% if extend_height %} card--extend-height{% endif %}
-      {% if card_collection.featured_image == nil and card_style == 'card' %} ratio{% endif %}
     "
-    style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
   >
     <div
-      class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}{% if card_collection.featured_image or card_style == 'standard' %} ratio{% endif %}"
-      style="--ratio-percent: {{ 1 | divided_by: ratio | times: 100 }}%;"
+      class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}"
     >
+      {%- if card_collection.all_products_count > 0 -%}
+        <span class="auralink-card__badge">
+          {{ card_collection.all_products_count }} {{ 'products.facets.product_count_simple' | t: count: card_collection.all_products_count | default: 'Items' }}
+        </span>
+      {%- elsif card_collection != blank -%}
+        <span class="auralink-card__badge">Collection</span>
+      {%- endif -%}
+
       {%- if card_collection.featured_image -%}
         <div class="card__media">
-          <div class="media media--transparent media--hover-effect">
+          <a
+            {% if card_collection == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ card_collection.url }}"
+            {% endif %}
+            class="media media--transparent media--hover-effect"
+            tabindex="-1"
+            aria-hidden="true"
+          >
             <img
               srcset="
                 {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
@@ -57,125 +71,92 @@
                 {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
                 {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
                 {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 1500 -%}{{ card_collection.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 3000 -%}{{ card_collection.featured_image | image_url: width: 3000 }} 3000w,{%- endif -%}
                 {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
               "
-              src="{{ card_collection.featured_image | image_url: width: 1500 }}"
+              src="{{ card_collection.featured_image | image_url: width: 535 }}"
               sizes="
-                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns }}px,
-                (min-width: 750px) {% if columns > 1 %}calc((100vw - 10rem) / 2){% else %}calc(100vw - 10rem){% endif %},
-                calc(100vw - 3rem)
+                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px,
+                (min-width: 990px) calc((100vw - 130px) / 4),
+                (min-width: 750px) calc((100vw - 120px) / 3),
+                calc((100vw - 35px) / 2)
               "
-              alt="{{ card_collection.featured_image.alt | escape }}"
+              alt="{{ card_collection.featured_image.alt | default: card_collection.title | escape }}"
               height="{{ card_collection.featured_image.height }}"
               width="{{ card_collection.featured_image.width }}"
               loading="lazy"
               class="motion-reduce"
             >
-          </div>
+          </a>
         </div>
-      {%- endif -%}
-      {%- if card_collection == blank or card_collection.featured_image == nil -%}
+      {%- else -%}
+        {%- assign coll_fallback_idx = forloop.index | default: 1 | minus: 1 | modulo: 6 | plus: 1 -%}
+        {%- assign coll_fallback_img = 'product-img-' | append: coll_fallback_idx | append: '.png' -%}
         <div class="card__media">
-          {%- assign coll_fallback_idx = forloop.index | default: 1 | minus: 1 | modulo: 6 | plus: 1 -%}
-          {%- assign coll_fallback_img = 'product-img-' | append: coll_fallback_idx | append: '.png' -%}
-          <div class="media media--transparent">
+          <a
+            {% if card_collection == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ card_collection.url }}"
+            {% endif %}
+            class="media media--transparent media--hover-effect"
+            tabindex="-1"
+            aria-hidden="true"
+          >
             <img
               src="{{ coll_fallback_img | asset_url }}"
               alt="AuraLink Collection"
               loading="lazy"
               width="1048"
               height="874"
-              class="motion-reduce"
-              style="width: 100%; height: 100%; object-fit: cover;"
+              class="motion-reduce auralink-card__fallback-img"
             >
-          </div>
-        </div>
-      {%- else -%}
-        <div class="card__content">
-          <div class="card__information">
-            <h3 class="card__heading">
-              <a
-                {% if card_collection == blank %}
-                  role="link" aria-disabled="true"
-                {% else %}
-                  href="{{ card_collection.url }}"
-                {% endif %}
-                class="full-unstyled-link"
-              >
-                {%- if card_collection.title != blank -%}
-                  {{- card_collection.title | escape -}}
-                {%- else -%}
-                  {{ 'onboarding.collection_title' | t }}
-                {%- endif -%}
-                {%- if card_collection.description == blank -%}
-                  <span class="icon-wrap">
-                    {{- 'icon-arrow.svg' | inline_asset_content -}}
-                  </span>
-                {%- endif %}
-              </a>
-            </h3>
-            {%- if card_collection.description != blank -%}
-              <p class="card__caption">
-                {{- card_collection.description | strip_html | truncatewords: 12 -}}
-                <span class="icon-wrap">
-                  {{- 'icon-arrow.svg' | inline_asset_content -}}
-                </span>
-              </p>
-            {%- endif -%}
-          </div>
+          </a>
         </div>
       {%- endif -%}
     </div>
-    {%- if card_collection != blank and card_style == 'card' or card_collection.featured_image -%}
-      <div class="card__content">
-        <div class="card__information">
-          <h3 class="card__heading">
-            <a
-              {% if card_collection == blank %}
-                role="link" aria-disabled="true"
-              {% else %}
-                href="{{ card_collection.url }}"
-              {% endif %}
-              class="full-unstyled-link"
-            >
-              {%- if card_collection.title != blank -%}
-                {{- card_collection.title | escape -}}
-              {%- else -%}
-                {{ 'onboarding.collection_title' | t }}
-              {%- endif -%}
-              {%- if card_collection.featured_image or card_collection.description == blank -%}
-                <span class="icon-wrap">
-                  {{- 'icon-arrow.svg' | inline_asset_content -}}
-                </span>
-              {%- endif %}
-            </a>
-          </h3>
-          {%- if card_collection.featured_image == null and card_collection.description != blank -%}
-            <p class="card__caption">
-              {{- card_collection.description | strip_html | truncatewords: 12 -}}
-              <span class="icon-wrap">
-                {{- 'icon-arrow.svg' | inline_asset_content -}}
-              </span>
-            </p>
-          {%- endif -%}
-        </div>
-      </div>
-    {%- endif -%}
-    {%- if card_collection == blank -%}
-      <div class="card__content">
-        <div class="card__information">
-          <h3 class="card__heading card__heading--placeholder">
-            <a role="link" aria-disabled="true" class="full-unstyled-link">
+
+    <div class="card__content">
+      <div class="card__information">
+        <h3 class="card__heading">
+          <a
+            {% if card_collection == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ card_collection.url }}"
+            {% endif %}
+            class="full-unstyled-link"
+          >
+            {%- if card_collection.title != blank -%}
+              {{- card_collection.title | escape -}}
+            {%- else -%}
               {{ 'onboarding.collection_title' | t }}
-              <span class="icon-wrap">
-                {{- 'icon-arrow.svg' | inline_asset_content -}}
-              </span>
-            </a>
-          </h3>
+            {%- endif -%}
+          </a>
+        </h3>
+
+        <div class="auralink-card__bottom-row">
+          <div class="auralink-card__price">
+            {%- if card_collection.all_products_count > 0 -%}
+              <span>{{ card_collection.all_products_count }} {{ 'products.facets.product_count_simple' | t: count: card_collection.all_products_count | default: 'Items' }}</span>
+            {%- else -%}
+              <span>Explore collection</span>
+            {%- endif -%}
+          </div>
+          <a
+            {% if card_collection == blank %}
+              role="link" aria-disabled="true"
+            {% else %}
+              href="{{ card_collection.url }}"
+            {% endif %}
+            class="auralink-card__action-btn"
+            aria-label="{{ card_collection.title | default: 'Collection' | escape }}"
+          >
+            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4M11.5 2.5V10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </a>
         </div>
       </div>
-    {%- endif -%}
+    </div>
   </div>
 </div>

@@ -1,10 +1,58 @@
+/* ==========================================================================
+   AuraLink Collections List Page (/collections)
+   Matches the compact, balanced card size of /collections/all
+   ========================================================================== */
+
 .collection-list {
   margin-top: 0;
   margin-bottom: 0;
 }
 
-.collection-list-title {
+.collection-list-header {
+  margin-bottom: 40px;
+}
+
+.collection-list-header__tag-wrap {
+  margin-bottom: 14px;
+}
+
+.collection-list-header .auralink-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--auralink-radius-badge, 40px);
+  background-color: var(--auralink-color-accent, #F2FE63);
+  color: #000000;
+  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.collection-list-header .auralink-pill__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: #000000;
+  display: inline-block;
+}
+
+.collection-list-header h1.title {
+  font-family: 'Unbounded', var(--font-heading-family), sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--color-foreground, #000000);
+  font-size: clamp(32px, 4vw, 48px);
   margin: 0;
+  line-height: 1.15;
+}
+
+.collection-list.grid {
+  row-gap: 28px;
+  column-gap: 20px;
 }
 
 @media screen and (max-width: 749px) {
@@ -21,6 +69,11 @@
   .section-collection-list .collection-list:not(.slider) {
     padding-left: 1.5rem;
     padding-right: 1.5rem;
+  }
+
+  .collection-list.grid {
+    row-gap: 20px;
+    column-gap: 14px;
   }
 }
 
