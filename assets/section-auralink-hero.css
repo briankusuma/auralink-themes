@@ -2,7 +2,7 @@
 
 .auralink-hero-wrapper {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--page-width, 1440px);
   margin: 0 auto;
   padding-left: 16px;
   padding-right: 16px;
@@ -12,7 +12,7 @@
 .auralink-hero-container {
   position: relative;
   width: 100%;
-  max-width: 1408px;
+  max-width: calc(var(--page-width, 1440px) - 32px);
   aspect-ratio: 1408 / 883;
   min-height: clamp(600px, 62.7vw, 883px);
   margin: 0 auto;

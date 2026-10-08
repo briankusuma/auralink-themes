@@ -11,7 +11,7 @@
 }
 
 .auralink-footer-wrapper {
-  max-width: 1408px;
+  max-width: var(--page-width, 1408px);
   margin: 0 auto;
   box-sizing: border-box;
 }

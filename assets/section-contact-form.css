@@ -269,7 +269,7 @@
 .contact .field {
   position: relative;
   margin-bottom: 1.6rem;
-  border-radius: 16px;
+  border-radius: var(--inputs-radius, 16px);
 }
 
 .contact .field:before {
@@ -283,8 +283,8 @@
   right: 0;
   bottom: 0;
   left: 0;
-  border-radius: 16px;
-  border: 1px solid rgba(var(--color-foreground, 0, 0, 0), 0.09);
+  border-radius: var(--inputs-radius, 16px);
+  border: var(--inputs-border-width, 1px) solid rgba(var(--color-foreground, 0, 0, 0), var(--inputs-border-opacity, 0.09));
   box-shadow: none;
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   pointer-events: none;
@@ -303,10 +303,10 @@
 .contact .field__input {
   background-color: var(--auralink-color-surface, #F8F8F6);
   border: none;
-  border-radius: 16px;
+  border-radius: var(--inputs-radius, 16px);
   height: 5.6rem;
   padding: 2.2rem 2rem 0.8rem;
-  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-family: var(--font-body-family), sans-serif;
   font-size: 1.5rem;
   color: var(--color-foreground, #000000);
   box-sizing: border-box;
@@ -483,10 +483,10 @@
   gap: 1.2rem;
   min-height: 5.4rem;
   padding: 0 3.6rem;
-  border-radius: var(--auralink-radius-pill, 100px);
-  background-color: #000000;
-  color: #FFFFFF;
-  font-family: 'Inter', var(--font-body-family), sans-serif;
+  border-radius: var(--buttons-radius, 100px);
+  background-color: rgb(var(--color-button, 0, 0, 0));
+  color: rgb(var(--color-button-text, 255, 255, 255));
+  font-family: var(--font-body-family), sans-serif;
   font-size: 1.5rem;
   font-weight: 600;
   letter-spacing: -0.01em;

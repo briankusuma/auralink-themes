@@ -213,7 +213,7 @@
         "id": "animations_hover_elements",
         "options": [
           {
-            "value": "default",
+            "value": "none",
             "label": "t:settings_schema.animations.settings.animations_hover_elements.options__1.label"
           },
           {
@@ -225,7 +225,7 @@
             "label": "t:settings_schema.animations.settings.animations_hover_elements.options__3.label"
           }
         ],
-        "default": "default",
+        "default": "none",
         "label": "t:settings_schema.animations.settings.animations_hover_elements.label",
         "info": "t:settings_schema.animations.settings.animations_hover_elements.info"
       }

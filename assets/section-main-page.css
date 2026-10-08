@@ -3,7 +3,7 @@
 }
 
 .main-page-title {
-  font-family: 'Unbounded', var(--font-heading-family), sans-serif;
+  font-family: var(--font-heading-family), sans-serif;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -22,7 +22,7 @@
 }
 
 .main-page-title + .rte {
-  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-family: var(--font-body-family), sans-serif;
   font-size: 1.6rem;
   line-height: 1.6;
   color: rgba(var(--color-foreground, 0, 0, 0), 0.7);

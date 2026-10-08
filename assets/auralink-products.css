@@ -12,11 +12,23 @@
 }
 
 .product-card-wrapper .card,
-.collection-card-wrapper .card,
 .card-wrapper .card {
   background-color: #FFFFFF;
-  border-radius: 32px !important;
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: var(--product-card-corner-radius, 32px);
+  border: var(--product-card-border-width, 1px) solid rgba(0, 0, 0, var(--product-card-border-opacity, 0.06));
+  padding: 16px;
+  box-sizing: border-box;
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.collection-card-wrapper .card {
+  border-radius: var(--collection-card-corner-radius, 32px);
+  border: var(--collection-card-border-width, 1px) solid rgba(0, 0, 0, var(--collection-card-border-opacity, 0.06));
   padding: 16px;
   box-sizing: border-box;
   transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.35s ease;
@@ -86,12 +98,12 @@
   align-items: center;
   justify-content: center;
   padding: 6px 10px;
-  border-radius: 40px;
-  background-color: #F2FE63 !important;
-  color: #000000 !important;
-  font-family: 'Inter', var(--font-body-family), sans-serif !important;
+  border-radius: var(--badge-corner-radius, 40px);
+  background-color: var(--auralink-color-accent, #F2FE63);
+  color: #000000;
+  font-family: var(--font-body-family), sans-serif;
   font-size: 13px;
-  font-weight: 400 !important;
+  font-weight: 400;
   letter-spacing: -0.01em;
   text-transform: none;
   line-height: 1.2;
@@ -105,34 +117,34 @@
 .card-wrapper .card:hover .auralink-card__badge,
 .card:hover .auralink-card__badge,
 .product-card-wrapper:hover .auralink-card__badge {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 .auralink-card__badge--sold-out {
-  background-color: #000000 !important;
-  color: #FFFFFF !important;
+  background-color: #000000;
+  color: #FFFFFF;
 }
 
 /* Native Card Badge / Collection Badge */
 .card__badge .badge,
 .card-wrapper .badge,
 .product-card-wrapper .badge {
-  display: inline-flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  padding: 6px 10px !important;
-  border-radius: 40px !important;
-  background-color: #F2FE63 !important;
-  color: #000000 !important;
-  font-family: 'Inter', var(--font-body-family), sans-serif !important;
-  font-size: 13px !important;
-  font-weight: 400 !important;
-  letter-spacing: -0.01em !important;
-  text-transform: none !important;
-  line-height: 1.2 !important;
-  border: none !important;
-  box-shadow: none !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 10px;
+  border-radius: var(--badge-corner-radius, 40px);
+  background-color: rgb(var(--color-badge-background, 242, 254, 99));
+  color: rgb(var(--color-badge-foreground, 0, 0, 0));
+  font-family: var(--font-body-family), sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  line-height: 1.2;
+  border: none;
+  box-shadow: none;
   transition: background-color 0.25s ease, color 0.25s ease;
 }
 
@@ -261,7 +273,7 @@
 }
 
 .auralink-collection-hero__card {
-  max-width: 1408px;
+  max-width: var(--page-width, 1408px);
   margin: 0 auto;
   background-color: #F5F3F0;
   border-radius: 32px;
@@ -334,7 +346,7 @@
    3. DETAIL PRODUCT PAGE
    -------------------------------------------------------------------------- */
 .product {
-  max-width: 1408px;
+  max-width: var(--page-width, 1408px);
   margin: 0 auto;
   padding: 24px 16px 64px;
   box-sizing: border-box;
