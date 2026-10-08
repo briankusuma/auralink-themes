@@ -151,7 +151,7 @@ quantity-popover .quantity__rules span:first-of-type {
 }
 
 quantity-popover .quantity {
-  background: rgb(var(--color-background));
+  background: transparent;
 }
 
 quantity-popover .quantity__rules {
@@ -160,9 +160,4 @@ quantity-popover .quantity__rules {
 
 quantity-popover .quantity__rules .divider:nth-child(2)::before {
   content: none;
-}
-
-quantity-popover .quantity__button:not(:focus-visible):not(.focused),
-quantity-popover .quantity__input:not(:focus-visible):not(.focused) {
-  background-color: initial;
 }
