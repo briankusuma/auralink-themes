@@ -385,6 +385,51 @@
   transform: translateY(-2px);
 }
 
+/* Product Media Icon / Lightbox Opener */
+.product__media-icon,
+.product__media-icon--lightbox {
+  width: 3.2rem !important;
+  height: 3.2rem !important;
+  top: 1.5rem !important;
+  left: 1.5rem !important;
+  background-color: #F2FE63 !important;
+  color: #000000 !important;
+  border: none !important;
+  border-radius: 50% !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+
+.product__media-icon .icon,
+.product__media-icon--lightbox .icon {
+  width: 1.4rem !important;
+  height: 1.4rem !important;
+  color: #000000 !important;
+}
+
+.product__modal-opener:hover .product__media-icon {
+  border: none !important;
+}
+
+/* Product Media Modal Popup */
+.product-media-modal__content,
+.product-media-modal__dialog,
+.product-media-modal__content .global-media-settings,
+.product-media-modal__content .global-media-settings img,
+.product-media-modal__content .global-media-settings video,
+.product-media-modal__content .global-media-settings model-viewer,
+.product-media-modal__content .global-media-settings iframe,
+.product-media-modal__content img {
+  border: none !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.product-media-modal__content .global-media-settings:after {
+  display: none !important;
+}
+
 /* Product Info Column */
 .product__info-container {
   display: flex;

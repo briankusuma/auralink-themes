@@ -477,11 +477,28 @@ a.product__text {
 }
 
 .product__media-icon .icon {
-  width: 1.2rem;
+  width: 1.4rem;
   height: 1.4rem;
+  color: #000000;
 }
 
-.product__media-icon,
+.product__media-icon {
+  background-color: #F2FE63;
+  border-radius: 50%;
+  border: none;
+  color: #000000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 3.2rem;
+  width: 3.2rem;
+  position: absolute;
+  left: 1.5rem;
+  top: 1.5rem;
+  z-index: 1;
+  transition: color var(--duration-short) ease, opacity var(--duration-short) ease;
+}
+
 .thumbnail__badge {
   background-color: rgb(var(--color-background));
   border-radius: 50%;
@@ -508,7 +525,7 @@ a.product__text {
 }
 
 .product__modal-opener:hover .product__media-icon {
-  border: 0.1rem solid rgba(var(--color-foreground), 0.1);
+  border: none;
 }
 
 @media screen and (min-width: 750px) {
@@ -650,6 +667,21 @@ a.product__text {
   max-height: 100vh;
   width: 100%;
   overflow: auto;
+  border: none;
+}
+
+.product-media-modal__content .global-media-settings,
+.product-media-modal__content .global-media-settings video,
+.product-media-modal__content .global-media-settings model-viewer,
+.product-media-modal__content .global-media-settings iframe,
+.product-media-modal__content .global-media-settings img,
+.product-media-modal__content img {
+  border: none;
+  box-shadow: none;
+}
+
+.product-media-modal__content .global-media-settings:after {
+  display: none;
 }
 
 .product-media-modal__content > *:not(.active),
@@ -851,14 +883,16 @@ a.product__text {
     margin: 0;
   }
 
-  .product-media-modal__dialog .global-media-settings,
-  .product-media-modal__dialog .global-media-settings video,
-  .product-media-modal__dialog .global-media-settings model-viewer,
-  .product-media-modal__dialog .global-media-settings iframe,
-  .product-media-modal__dialog .global-media-settings img {
-    border: none;
-    border-radius: 0;
-  }
+}
+
+.product-media-modal__dialog .global-media-settings,
+.product-media-modal__dialog .global-media-settings video,
+.product-media-modal__dialog .global-media-settings model-viewer,
+.product-media-modal__dialog .global-media-settings iframe,
+.product-media-modal__dialog .global-media-settings img {
+  border: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .product-popup-modal__opener {
