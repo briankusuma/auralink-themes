@@ -7,7 +7,7 @@
         "tag": "Collections",
         "sort": "alphabetical",
         "image_ratio": "adapt",
-        "columns_desktop": 4,
+        "columns_desktop": 3,
         "columns_mobile": "2",
         "padding_top": 36,
         "padding_bottom": 64

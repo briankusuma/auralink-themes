@@ -1,162 +1,96 @@
 {% comment %}
   Renders a collection card
+  Figma Node: 3265:260 (Speedtest / Collections)
 
   Accepts:
   - card_collection: {Object} Collection Liquid object
-  - media_aspect_ratio: {String} Size of the product image card. Values are "square" and "portrait". Default is "square" (optional)
+  - media_aspect_ratio: {String} Size of the product image card (optional)
   - columns: {Number}
-  - extend_height: {Boolean} Card height extends to available container space. Default: false (optional)
   - wrapper_class: {String} Wrapper class for card (optional)
-  - placeholder_image: {String} Placeholder image when collection is empty (optional)
 
   Usage:
-  {% render 'card-collection' %}
+  {% render 'card-collection', card_collection: collection %}
 {% endcomment %}
 
-{%- liquid
-  assign ratio = 1
-  if card_collection.featured_image and media_aspect_ratio == 'portrait'
-    assign ratio = 0.8
-  elsif card_collection.featured_image and media_aspect_ratio == 'adapt'
-    assign ratio = card_collection.featured_image.aspect_ratio
-  endif
-  if ratio == 0 or ratio == null
-    assign ratio = 1
-  endif
-  assign card_color_scheme = settings.card_color_scheme
-  assign card_style = settings.card_style
-  if wrapper_class == null or wrapper_class == 'none'
-    assign card_color_scheme = settings.collection_card_color_scheme
-    assign card_style = settings.collection_card_style
-  endif
--%}
-
 <div class="card-wrapper animate-arrow {% if wrapper_class and wrapper_class != 'none' %}{{ wrapper_class }}{% else %}collection-card-wrapper{% endif %}">
-  <div
-    class="
-      card
-      card--{{ card_style }}
-      {% if card_collection.featured_image %} card--media{% else %} card--text{% endif %}
-      {% if card_style == 'card' %} color-{{ card_color_scheme }} gradient{% endif %}
-      {% if extend_height %} card--extend-height{% endif %}
-    "
-  >
-    <div
-      class="card__inner {% if card_style == 'standard' %}color-{{ card_color_scheme }} gradient{% endif %}"
-    >
-      {%- if card_collection.all_products_count > 0 -%}
-        <span class="auralink-card__badge">
-          {{ card_collection.all_products_count }} {{ 'products.facets.product_count_simple' | t: count: card_collection.all_products_count | default: 'Items' }}
-        </span>
-      {%- elsif card_collection != blank -%}
-        <span class="auralink-card__badge">Collection</span>
-      {%- endif -%}
-
+  <div class="auralink-collection-card">
+    {%- comment -%} 1. Background Media & Gradient Overlay {%- endcomment -%}
+    <div class="auralink-collection-card__media">
       {%- if card_collection.featured_image -%}
-        <div class="card__media">
-          <a
-            {% if card_collection == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ card_collection.url }}"
-            {% endif %}
-            class="media media--transparent media--hover-effect"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <img
-              srcset="
-                {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 330 -%}{{ card_collection.featured_image | image_url: width: 330 }} 330w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
-                {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
-                {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
-              "
-              src="{{ card_collection.featured_image | image_url: width: 535 }}"
-              sizes="
-                (min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px,
-                (min-width: 990px) calc((100vw - 130px) / 4),
-                (min-width: 750px) calc((100vw - 120px) / 3),
-                calc((100vw - 35px) / 2)
-              "
-              alt="{{ card_collection.featured_image.alt | default: card_collection.title | escape }}"
-              height="{{ card_collection.featured_image.height }}"
-              width="{{ card_collection.featured_image.width }}"
-              loading="lazy"
-              class="motion-reduce"
-            >
-          </a>
-        </div>
+        <img
+          srcset="
+            {%- if card_collection.featured_image.width >= 165 -%}{{ card_collection.featured_image | image_url: width: 165 }} 165w,{%- endif -%}
+            {%- if card_collection.featured_image.width >= 360 -%}{{ card_collection.featured_image | image_url: width: 360 }} 360w,{%- endif -%}
+            {%- if card_collection.featured_image.width >= 535 -%}{{ card_collection.featured_image | image_url: width: 535 }} 535w,{%- endif -%}
+            {%- if card_collection.featured_image.width >= 750 -%}{{ card_collection.featured_image | image_url: width: 750 }} 750w,{%- endif -%}
+            {%- if card_collection.featured_image.width >= 1000 -%}{{ card_collection.featured_image | image_url: width: 1000 }} 1000w,{%- endif -%}
+            {%- if card_collection.featured_image.width >= 1500 -%}{{ card_collection.featured_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+            {{ card_collection.featured_image | image_url }} {{ card_collection.featured_image.width }}w
+          "
+          src="{{ card_collection.featured_image | image_url: width: 750 }}"
+          sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: columns | default: 3 }}px, (min-width: 750px) calc((100vw - 10rem) / {{ columns | default: 3 }}), calc(100vw - 3rem)"
+          alt="{{ card_collection.featured_image.alt | default: card_collection.title | escape }}"
+          height="{{ card_collection.featured_image.height }}"
+          width="{{ card_collection.featured_image.width }}"
+          loading="lazy"
+          class="auralink-collection-card__img motion-reduce"
+        >
       {%- else -%}
         {%- assign coll_fallback_idx = forloop.index | default: 1 | minus: 1 | modulo: 6 | plus: 1 -%}
         {%- assign coll_fallback_img = 'product-img-' | append: coll_fallback_idx | append: '.png' -%}
-        <div class="card__media">
-          <a
-            {% if card_collection == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ card_collection.url }}"
-            {% endif %}
-            class="media media--transparent media--hover-effect"
-            tabindex="-1"
-            aria-hidden="true"
-          >
-            <img
-              src="{{ coll_fallback_img | asset_url }}"
-              alt="AuraLink Collection"
-              loading="lazy"
-              width="1048"
-              height="874"
-              class="motion-reduce auralink-card__fallback-img"
-            >
-          </a>
-        </div>
+        <img
+          src="{{ coll_fallback_img | asset_url }}"
+          alt="{{ card_collection.title | default: 'AuraLink Collection' | escape }}"
+          loading="lazy"
+          width="1048"
+          height="874"
+          class="auralink-collection-card__img auralink-collection-card__fallback-img motion-reduce"
+        >
       {%- endif -%}
+      <div class="auralink-collection-card__overlay" aria-hidden="true"></div>
     </div>
 
-    <div class="card__content">
-      <div class="card__information">
-        <h3 class="card__heading">
-          <a
-            {% if card_collection == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ card_collection.url }}"
-            {% endif %}
-            class="full-unstyled-link"
-          >
-            {%- if card_collection.title != blank -%}
-              {{- card_collection.title | escape -}}
-            {%- else -%}
-              {{ 'onboarding.collection_title' | t }}
-            {%- endif -%}
-          </a>
-        </h3>
-
-        <div class="auralink-card__bottom-row">
-          <div class="auralink-card__price">
-            {%- if card_collection.all_products_count > 0 -%}
-              <span>{{ card_collection.all_products_count }} {{ 'products.facets.product_count_simple' | t: count: card_collection.all_products_count | default: 'Items' }}</span>
-            {%- else -%}
-              <span>Explore collection</span>
-            {%- endif -%}
-          </div>
-          <a
-            {% if card_collection == blank %}
-              role="link" aria-disabled="true"
-            {% else %}
-              href="{{ card_collection.url }}"
-            {% endif %}
-            class="auralink-card__action-btn"
-            aria-label="{{ card_collection.title | default: 'Collection' | escape }}"
-          >
-            <svg viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4M11.5 2.5V10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </a>
-        </div>
-      </div>
+    {%- comment -%} 2. Top-Left Badge: Name Collection (Figma node 3265:261) {%- endcomment -%}
+    <div class="auralink-collection-card__badge-wrap">
+      <span class="auralink-collection-card__name-badge">
+        {%- if card_collection.title != blank -%}
+          {{- card_collection.title | escape -}}
+        {%- else -%}
+          {{ 'onboarding.collection_title' | t }}
+        {%- endif -%}
+      </span>
     </div>
+
+    {%- comment -%} 3. Bottom-Right Button: View Collection (Figma node 3250:234) {%- endcomment -%}
+    <div class="auralink-collection-card__action-wrap">
+      <a
+        {% if card_collection == blank %}
+          role="link" aria-disabled="true"
+        {% else %}
+          href="{{ card_collection.url }}"
+        {% endif %}
+        class="auralink-collection-card__btn"
+      >
+        <span class="auralink-collection-card__btn-text">View collection</span>
+        <span class="auralink-collection-card__btn-icon" aria-hidden="true">
+          <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M2.5 11.5L11.5 2.5M11.5 2.5H4M11.5 2.5V10" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </a>
+    </div>
+
+    {%- comment -%} Full card clickable link {%- endcomment -%}
+    <a
+      {% if card_collection == blank %}
+        role="link" aria-disabled="true"
+      {% else %}
+        href="{{ card_collection.url }}"
+      {% endif %}
+      class="auralink-collection-card__full-link"
+      aria-label="{{ card_collection.title | default: 'Collection' | escape }}"
+    >
+      <span class="visually-hidden">{{ card_collection.title | default: 'Collection' | escape }}</span>
+    </a>
   </div>
 </div>
