@@ -162,7 +162,7 @@
               >
               <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }} *</label>
             </div>
-            <div class="field field--with-error">
+            <div class="field{% if form.errors contains 'email' %} field--with-error{% endif %}">
               <input
                 autocomplete="email"
                 type="email"

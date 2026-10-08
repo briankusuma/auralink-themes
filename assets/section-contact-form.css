@@ -364,14 +364,18 @@
   top: 1rem;
 }
 
-/* Error States */
+/* Error States - Only active on actual error or user-invalid interaction */
 .contact .field.field--with-error:after,
-.contact .field:has(.field__input[aria-invalid="true"]):after {
+.contact .field:has(.field__input[aria-invalid="true"]):after,
+.contact .field:has(.field__input:user-invalid):after {
   border-color: #D32F2F;
 }
 
-.contact .field:has(.field__input[aria-invalid="true"]):focus-within:after {
-  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.2);
+.contact .field.field--with-error:focus-within:after,
+.contact .field:has(.field__input[aria-invalid="true"]):focus-within:after,
+.contact .field:has(.field__input:user-invalid):focus-within:after {
+  border-color: #D32F2F;
+  box-shadow: none;
 }
 
 .contact .contact__field-error {
