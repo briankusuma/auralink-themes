@@ -223,11 +223,10 @@
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
           href="{{ view_all_url }}"
-          class="auralink-view-all-btn {% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button button--primary{% else %}button button--secondary{% endif %}"
+          class="{% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button button--primary{% else %}button button--secondary{% endif %}"
           aria-label="{{ view_all_label | escape }}"
         >
           <span>{{ view_all_label | escape }}</span>
-          {% render 'icon-arrow-top-right' %}
         </a>
       </div>
     {%- endif -%}
