@@ -218,14 +218,15 @@
 
     {%- if section.settings.show_view_all -%}
       {%- assign view_all_url = section.settings.button_link | default: target_collection.url | default: section.settings.collection.url | default: routes.all_products_collection_url -%}
-      {%- assign view_all_label = section.settings.button_label | default: 'sections.featured_collection.view_all' | t -%}
+      {%- assign default_view_all = 'sections.featured_collection.view_all' | t -%}
+      {%- assign view_all_label = section.settings.button_label | default: default_view_all -%}
       <div class="center collection__view-all{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <a
           href="{{ view_all_url }}"
           class="auralink-view-all-btn {% if section.settings.view_all_style == 'link' %}link underlined-link{% elsif section.settings.view_all_style == 'solid' %}button button--primary{% else %}button button--secondary{% endif %}"
-          aria-label="{{ view_all_label }}"
+          aria-label="{{ view_all_label | escape }}"
         >
-          <span>{{ view_all_label }}</span>
+          <span>{{ view_all_label | escape }}</span>
           {% render 'icon-arrow-top-right' %}
         </a>
       </div>
