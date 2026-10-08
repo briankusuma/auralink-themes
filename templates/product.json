@@ -27,6 +27,10 @@
           "type": "price",
           "settings": {}
         },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
         "inventory": {
           "type": "inventory",
           "settings": {
@@ -72,10 +76,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "share": {
           "type": "share",
           "settings": {
@@ -87,13 +87,13 @@
         "vendor",
         "title",
         "price",
+        "description",
         "inventory",
         "variant_picker",
         "quantity_selector",
         "judge_me_reviews_ugc_media_grid_nrJcqq",
         "subscriptions_app_block_9TjcJj",
         "buy_buttons",
-        "description",
         "share"
       ],
       "settings": {
