@@ -183,7 +183,7 @@
         {%- endif -%}
       </ul>
       {%- if show_mobile_slider or show_desktop_slider -%}
-        <div class="slider-buttons">
+        <div class="slider-buttons quick-add-hidden{% if show_desktop_slider == false %} large-up-hide{% endif %}{% if show_mobile_slider == false %} small-hide{% endif %}{% if section.settings.columns_desktop < products_to_display and show_mobile_slider == false %} medium-hide{% endif %}">
           <button
             type="button"
             class="slider-button slider-button--prev"

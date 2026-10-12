@@ -1021,11 +1021,32 @@ quantity-popover .quantity__input,
    Product Slider Navigation Buttons (Circular Accent Green, Black on Hover)
    -------------------------------------------------------------------------- */
 .slider-buttons {
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  gap: 12px !important;
-  margin-top: 28px !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
+}
+
+@media screen and (min-width: 990px) {
+  .slider-buttons.large-up-hide,
+  .slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .slider-buttons.medium-hide,
+  .slider:not(.slider--everywhere):not(.slider--tablet) + .slider-buttons {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 749px) {
+  .slider-buttons.small-hide,
+  .slider:not(.slider--everywhere):not(.slider--tablet):not(.slider--mobile) + .slider-buttons {
+    display: none !important;
+  }
 }
 
 .slider-button {
