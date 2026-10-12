@@ -402,36 +402,41 @@ header-drawer .header__icon {
 
 .menu-drawer__utility-links {
   background: transparent !important;
-  padding: 1.2rem 0 0 !important;
+  padding: 1.6rem 0 0 !important;
   border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
-  margin: 0 !important;
+  margin-top: auto !important;
+  margin-bottom: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 0.8rem !important;
+  gap: 1.2rem !important;
 }
 
 .menu-drawer__account {
   display: inline-flex !important;
   align-items: center !important;
+  justify-content: center !important;
   gap: 1.2rem !important;
-  padding: 1rem 1.4rem !important;
+  padding: 1.2rem 2rem !important;
   text-decoration: none !important;
   font-size: 1.5rem !important;
-  font-weight: 500 !important;
+  font-weight: 600 !important;
   color: var(--auralink-color-dark, #000000) !important;
-  border-radius: 12px !important;
-  border-bottom: none !important;
+  border-radius: var(--auralink-radius-pill, 100px) !important;
+  border: 1px solid rgba(0, 0, 0, 0.12) !important;
+  margin-top: 0.8rem !important;
   margin-bottom: 0 !important;
-  background: rgba(0, 0, 0, 0.03) !important;
+  background: rgba(0, 0, 0, 0.04) !important;
   width: 100% !important;
   box-sizing: border-box !important;
-  transition: background 0.2s ease !important;
+  order: 99 !important;
+  transition: background 0.2s ease, transform 0.2s ease !important;
 }
 
 .menu-drawer__account:hover,
 .menu-drawer__account:focus {
-  background: rgba(0, 0, 0, 0.07) !important;
+  background: rgba(0, 0, 0, 0.08) !important;
   color: var(--auralink-color-dark, #000000) !important;
+  transform: translateY(-1px);
 }
 
 .menu-drawer__account .svg-wrapper {
@@ -444,13 +449,35 @@ header-drawer .header__icon {
 
 /* Responsive adjustments for Mobile (< 990px) */
 @media screen and (max-width: 989px) {
+  /* When Mobile Menu Drawer is open, navbar background becomes solid white */
+  .header-wrapper.menu-open,
+  .header-wrapper--overlay.menu-open,
+  .section-header.menu-open .header-wrapper,
+  .section-header.menu-open .header-wrapper--overlay,
+  .header-wrapper:has(header-drawer details[open]),
+  .header-wrapper--overlay:has(header-drawer details[open]),
+  .header-wrapper:has(header-drawer details.menu-opening),
+  .header-wrapper--overlay:has(header-drawer details.menu-opening),
+  .shopify-section-group-header-group:has(header-drawer details[open]) .header-wrapper,
+  .shopify-section-group-header-group:has(header-drawer details[open]) .header-wrapper--overlay,
+  body.overflow-hidden-tablet .header-wrapper,
+  body.overflow-hidden-tablet .header-wrapper--overlay,
+  body.overflow-hidden-mobile .header-wrapper,
+  body.overflow-hidden-mobile .header-wrapper--overlay {
+    top: 0 !important;
+    background: #ffffff !important;
+    background-color: #ffffff !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06) !important;
+  }
+
   .header {
     display: flex !important;
     align-items: center !important;
     justify-content: space-between !important;
     flex-wrap: nowrap !important;
     padding: 12px 20px !important;
-    gap: 12px !important;
+    gap: 8px !important;
   }
 
   /* 1. Left: Logo */
@@ -496,10 +523,11 @@ header-drawer .header__icon {
     display: none !important;
   }
 
-  /* 3. Right: Exactly 2 icons (Cart and Menu) */
+  /* 3. Right: Exactly 2 icons (Cart and Menu) with 8px gap */
   .header__icons {
     order: 2 !important;
     margin-left: auto !important;
+    margin-right: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     padding: 0 !important;
@@ -508,13 +536,27 @@ header-drawer .header__icon {
     flex-shrink: 0 !important;
   }
 
+  .header__icon--cart {
+    margin: 0 !important;
+  }
+
   header-drawer {
     order: 3 !important;
     margin: 0 !important;
+    padding: 0 !important;
     display: inline-flex !important;
     align-items: center !important;
     justify-self: end !important;
     flex-shrink: 0 !important;
+  }
+
+  header-drawer details {
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+
+  header-drawer summary.header__icon {
+    margin: 0 !important;
   }
 
   header-drawer .header__icon,
