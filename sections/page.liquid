@@ -27,8 +27,12 @@
       {%- if section.settings.page.content != blank -%}
         {{ section.settings.page.content }}
       {%- else -%}
-        <div class="page-placeholder-wrapper placeholder">
-          {{ 'page' | placeholder_svg_tag: 'page-placeholder' }}
+        <div class="page-placeholder-wrapper">
+          <div class="page-placeholder-box">
+            <p class="page-placeholder-text">
+              Select a page in the theme editor settings to feature its content here.
+            </p>
+          </div>
         </div>
       {%- endif -%}
     </div>
