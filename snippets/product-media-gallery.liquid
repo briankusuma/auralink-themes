@@ -21,6 +21,9 @@
   endif
 
   assign media_count = product.media.size
+  if media_count == 0
+    assign media_count = 6
+  endif
   if section.settings.hide_variants and media_count > 1 and variant_images.size > 0
     assign media_count = media_count | minus: variant_images.size | plus: 1
   endif
@@ -146,7 +149,7 @@
         {%- endfor -%}
       {%- endif -%}
     </ul>
-    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider %} small-hide{% endif %}">
+    <div class="slider-buttons quick-add-hidden{% if hide_mobile_slider and section.settings.gallery_layout != 'thumbnail_slider' %} small-hide{% endif %}">
       <button
         type="button"
         class="slider-button slider-button--prev"
@@ -208,7 +211,7 @@
     >
       <button
         type="button"
-        class="slider-button slider-button--prev{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
+        class="slider-button slider-button--prev{% if media_count <= 3 and section.settings.gallery_layout != 'thumbnail_slider' %} small-hide{% endif %}{% if media_count <= 4 and section.settings.gallery_layout != 'thumbnail_slider' %} medium-hide large-up-hide{% endif %}"
         name="previous"
         aria-label="{{ 'general.slider.previous_slide' | t }}"
         aria-controls="GalleryThumbnails-{{ section.id }}"
@@ -338,7 +341,7 @@
       </ul>
       <button
         type="button"
-        class="slider-button slider-button--next{% if media_count <= 3 %} small-hide{% endif %}{% if media_count <= 4 %} medium-hide large-up-hide{% endif %}"
+        class="slider-button slider-button--next{% if media_count <= 3 and section.settings.gallery_layout != 'thumbnail_slider' %} small-hide{% endif %}{% if media_count <= 4 and section.settings.gallery_layout != 'thumbnail_slider' %} medium-hide large-up-hide{% endif %}"
         name="next"
         aria-label="{{ 'general.slider.next_slide' | t }}"
         aria-controls="GalleryThumbnails-{{ section.id }}"
@@ -350,22 +353,45 @@
       </button>
     </slider-component>
   {%- endif -%}
-  {%- if product.media.size == 0 -%}
+  {%- if product.media.size == 0 and section.settings.gallery_layout contains 'thumbnail' -%}
     <div class="thumbnail-slider quick-add-hidden">
+      {%- if section.settings.gallery_layout == 'thumbnail_slider' -%}
+        <button
+          type="button"
+          class="slider-button slider-button--prev"
+          name="previous"
+          aria-label="{{ 'general.slider.previous_slide' | t }}"
+          onclick="
+            var container = this.parentElement.querySelector('.thumbnail-list');
+            if (container) container.scrollBy({ left: -160, behavior: 'smooth' });
+          "
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      {%- endif -%}
       <ul class="thumbnail-list list-unstyled" style="display: flex; gap: 12px; margin-top: 16px; overflow-x: auto; padding-bottom: 8px;">
         {%- for i in (1..6) -%}
           {%- assign img_file = 'product-img-' | append: i | append: '.png' -%}
-          <li class="thumbnail-list__item" style="width: 72px; height: 60px; flex-shrink: 0; cursor: pointer; border-radius: 14px; overflow: hidden; background: #F1EFEF;">
+          <li class="thumbnail-list__item" data-target="{{ section.id }}-mock-{{ i }}" data-media-position="{{ i }}" style="width: 72px; height: 60px; flex-shrink: 0; cursor: pointer; border-radius: 14px; overflow: hidden; background: #F1EFEF;">
             <button
               type="button"
               class="thumbnail"
               style="width: 100%; height: 100%; padding: 0; border: none; background: transparent; cursor: pointer;"
               onclick="
-                document.querySelectorAll('#Slider-Gallery-{{ section.id }} .product__media-item').forEach(function(el) { el.classList.remove('is-active'); });
-                var target = document.getElementById('Slide-{{ section.id }}-mock-{{ i }}');
-                if (target) {
-                  target.classList.add('is-active');
-                  target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                var gallery = this.closest('media-gallery');
+                if (gallery && gallery.setActiveMedia) {
+                  gallery.setActiveMedia('{{ section.id }}-mock-{{ i }}', false);
+                } else {
+                  document.querySelectorAll('#Slider-Gallery-{{ section.id }} .product__media-item').forEach(function(el) { el.classList.remove('is-active'); });
+                  var target = document.getElementById('Slide-{{ section.id }}-mock-{{ i }}');
+                  if (target) {
+                    target.classList.add('is-active');
+                    target.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+                  }
+                  var current = document.querySelector('#GalleryViewer-{{ section.id }} .slider-counter--current');
+                  if (current) current.textContent = '{{ i }}';
                 }
               "
             >
@@ -381,6 +407,22 @@
           </li>
         {%- endfor -%}
       </ul>
+      {%- if section.settings.gallery_layout == 'thumbnail_slider' -%}
+        <button
+          type="button"
+          class="slider-button slider-button--next"
+          name="next"
+          aria-label="{{ 'general.slider.next_slide' | t }}"
+          onclick="
+            var container = this.parentElement.querySelector('.thumbnail-list');
+            if (container) container.scrollBy({ left: 160, behavior: 'smooth' });
+          "
+        >
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </button>
+      {%- endif -%}
     </div>
   {%- endif -%}
 </media-gallery>

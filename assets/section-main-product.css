@@ -565,7 +565,8 @@ a.product__text {
 
 @media screen and (min-width: 990px) {
   .product--stacked .product__media-item {
-    max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
+    max-width: 100%;
+    width: 100%;
   }
 
   .product:not(.product--columns) .product__media-list .product__media-item:first-child,
@@ -1544,4 +1545,214 @@ a.product__text {
   .recipient-form > input[type='checkbox']:checked + label .icon-checkmark {
     border: none;
   }
+}
+
+/* ==========================================================================
+   AuraLink Product Gallery Layouts & Carousel Pagination
+   Supports: stacked, columns, thumbnail, thumbnail_slider
+   ========================================================================== */
+
+/* --- 1. STACKED LAYOUT (Desktop: 1 column vertical stack) --- */
+@media screen and (min-width: 750px) {
+  .product--stacked .product__media-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .product--stacked .product__media-item {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block !important;
+  }
+
+  .product--stacked .thumbnail-slider,
+  .product--stacked .thumbnail-list,
+  .product--stacked .slider-buttons {
+    display: none !important;
+  }
+}
+
+/* --- 2. 2 COLUMNS LAYOUT (Desktop: 2 columns grid) --- */
+@media screen and (min-width: 750px) {
+  .product--columns .product__media-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--grid-desktop-horizontal-spacing, 1.5rem);
+  }
+
+  .product--columns .product__media-item {
+    width: calc(50% - (var(--grid-desktop-horizontal-spacing, 1.5rem) / 2)) !important;
+    max-width: calc(50% - (var(--grid-desktop-horizontal-spacing, 1.5rem) / 2)) !important;
+    display: block !important;
+  }
+
+  .product--columns .thumbnail-slider,
+  .product--columns .thumbnail-list,
+  .product--columns .slider-buttons {
+    display: none !important;
+  }
+}
+
+/* --- 3. THUMBNAILS LAYOUT (Desktop: Active main media + static thumbnail grid) --- */
+@media screen and (min-width: 750px) {
+  .product--thumbnail .product__media-item:not(.is-active) {
+    display: none !important;
+  }
+
+  .product--thumbnail .product__media-item.is-active {
+    display: block !important;
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .product--thumbnail .thumbnail-slider {
+    display: block !important;
+    margin-top: 1.6rem;
+  }
+
+  .product--thumbnail .thumbnail-list {
+    display: grid !important;
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 1.2rem !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+
+  .product--thumbnail .thumbnail-list__item {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  .product--thumbnail .thumbnail-slider .slider-button,
+  .product--thumbnail .slider-buttons {
+    display: none !important;
+  }
+}
+
+/* --- 4. THUMBNAIL CAROUSEL LAYOUT (Desktop & Mobile: Main media + Carousel + Pagination) --- */
+.product--thumbnail_slider .product__media-item:not(.is-active) {
+  display: none !important;
+}
+
+.product--thumbnail_slider .product__media-item.is-active {
+  display: block !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+/* Pagination: prev/next buttons + counter */
+.product--thumbnail_slider .slider-buttons {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: 1.6rem;
+  margin-top: 1.8rem;
+  margin-bottom: 1.4rem;
+}
+
+.product--thumbnail_slider .slider-buttons .slider-button {
+  display: inline-flex !important;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background-color: var(--auralink-color-accent, #F2FE63);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product--thumbnail_slider .slider-buttons .slider-button:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  transform: scale(1.05);
+}
+
+.product--thumbnail_slider .slider-counter {
+  font-family: inherit;
+  font-size: 1.4rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgb(var(--color-foreground));
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.6rem 1.4rem;
+  background-color: rgba(var(--color-foreground), 0.06);
+  border-radius: 20px;
+}
+
+/* Thumbnail Carousel bar */
+.product--thumbnail_slider .thumbnail-slider {
+  display: flex !important;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+  position: relative;
+  margin-top: 0.8rem;
+}
+
+.product--thumbnail_slider .thumbnail-slider .slider-button {
+  display: flex !important;
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  min-height: 38px;
+  border-radius: 50%;
+  background-color: var(--auralink-color-accent, #F2FE63);
+  color: #000000;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.product--thumbnail_slider .thumbnail-slider .slider-button:hover {
+  background-color: #000000;
+  color: #FFFFFF;
+  border-color: #000000;
+  transform: scale(1.05);
+}
+
+.product--thumbnail_slider .thumbnail-list {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  overflow-x: auto !important;
+  gap: 1.2rem !important;
+  flex: 1 1 auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 0.4rem 0 !important;
+  margin: 0 !important;
+}
+
+.product--thumbnail_slider .thumbnail-list::-webkit-scrollbar {
+  display: none;
+}
+
+.product--thumbnail_slider .thumbnail-list__item {
+  flex-shrink: 0;
+  width: 76px !important;
+  max-width: 76px !important;
+}
+
+.product--thumbnail_slider .thumbnail {
+  border-radius: 14px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.product--thumbnail_slider .thumbnail[aria-current='true'],
+.product--thumbnail .thumbnail[aria-current='true'] {
+  box-shadow: 0 0 0 2px #000000 !important;
+  border-radius: 14px;
 }
