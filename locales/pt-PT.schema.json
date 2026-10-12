@@ -3178,8 +3178,7 @@
           "label": "Colunas"
         },
         "paragraph__1": {
-          "content": "Os produtos relacionados podem ser geridos na [aplicação Search & Discovery](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)",
-          "default": "Também poderá gostar de"
+          "content": "Os produtos relacionados podem ser geridos na [aplicação Search & Discovery](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
         },
         "header__2": {
           "content": "Cartão de produtos"

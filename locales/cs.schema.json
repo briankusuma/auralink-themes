@@ -3178,8 +3178,7 @@
           "label": "Sloupce"
         },
         "paragraph__1": {
-          "content": "Související produkty lze spravovat v aplikaci [Search & Discovery](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)",
-          "default": "Mohlo by se vám také líbit"
+          "content": "Související produkty lze spravovat v aplikaci [Search & Discovery](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
         },
         "header__2": {
           "content": "Karta produktu"

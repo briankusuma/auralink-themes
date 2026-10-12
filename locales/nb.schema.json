@@ -3178,8 +3178,7 @@
           "label": "Kolonner"
         },
         "paragraph__1": {
-          "content": "Relaterte produkter kan administreres i [Search & Discovery-appen](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)",
-          "default": "Kanskje du også liker"
+          "content": "Relaterte produkter kan administreres i [Search & Discovery-appen](https://help.shopify.com/manual/online-store/search-and-discovery/product-recommendations)"
         },
         "header__2": {
           "content": "Produktkort"

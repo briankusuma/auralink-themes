@@ -4,8 +4,8 @@
     "theme_name": "AuraLink",
     "theme_version": "1.0.0",
     "theme_author": "AuraLink",
-    "theme_documentation_url": "https://help.shopify.com/manual/online-store/themes",
-    "theme_support_url": "https://support.shopify.com/"
+    "theme_documentation_url": "https://TODO_REPLACE_WITH_AURALINK_DOCS_URL",
+    "theme_support_url": "https://TODO_REPLACE_WITH_AURALINK_SUPPORT_URL"
   },
   {
     "name": "t:settings_schema.logo.name",
