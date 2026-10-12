@@ -315,6 +315,8 @@ slider-component.slider-component-full-width {
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 @media screen and (min-width: 990px) {
@@ -336,28 +338,53 @@ slider-component.slider-component-full-width {
 }
 
 .slider-button {
-  color: rgba(var(--color-foreground), 0.75);
-  background: transparent;
-  border: none;
+  color: #000000;
+  background-color: var(--auralink-color-accent, #F2FE63);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 50%;
   cursor: pointer;
   width: 44px;
   height: 44px;
-  display: flex;
+  min-width: 44px;
+  min-height: 44px;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .slider-button:not([disabled]):hover {
-  color: rgb(var(--color-foreground));
+  color: #FFFFFF;
+  background-color: #000000;
+  border-color: #000000;
+  transform: scale(1.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+}
+
+.slider-button .svg-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
 }
 
 .slider-button .icon {
-  height: 0.6rem;
+  width: 11px;
+  height: 11px;
+  transition: transform 0.25s ease;
+}
+
+.slider-button[disabled] {
+  opacity: 0.35;
+  cursor: not-allowed;
+  box-shadow: none;
 }
 
 .slider-button[disabled] .icon {
-  color: rgba(var(--color-foreground), 0.3);
-  cursor: not-allowed;
+  color: rgba(0, 0, 0, 0.4);
 }
 
 .slider-button--next .icon {
@@ -369,9 +396,18 @@ slider-component.slider-component-full-width {
 }
 
 .slider-button--next:not([disabled]):hover .icon {
-  transform: rotate(-90deg) scale(1.1);
+  transform: rotate(-90deg) scale(1.15);
 }
 
 .slider-button--prev:not([disabled]):hover .icon {
-  transform: rotate(90deg) scale(1.1);
+  transform: rotate(90deg) scale(1.15);
+}
+
+.slider-counter {
+  font-family: 'Inter', var(--font-body-family), sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #000000;
+  padding: 0 12px;
+  letter-spacing: 0.02em;
 }

@@ -103,7 +103,13 @@
   flex-shrink: 0;
   margin-left: 67px;
   margin-right: 67px;
-  display: block;
+  display: block !important;
+}
+
+@media screen and (min-width: 750px) {
+  .auralink-impact-quote-divider {
+    display: block !important;
+  }
 }
 
 /* Quote Text (Figma Node 3069:246) */

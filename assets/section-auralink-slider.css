@@ -322,6 +322,8 @@
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   transition: transform 0.25s ease, box-shadow 0.25s ease;
   white-space: nowrap;
+  align-self: flex-end !important;
+  margin-left: auto !important;
 }
 
 .auralink-slider__cta:hover {
@@ -475,6 +477,11 @@
     align-items: flex-start;
     gap: 16px;
     padding: 24px;
+  }
+
+  .auralink-slider__cta {
+    align-self: flex-end !important;
+    margin-left: auto !important;
   }
 
   .auralink-slider__meta {

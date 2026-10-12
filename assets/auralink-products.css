@@ -1017,6 +1017,92 @@ quantity-popover .quantity__input,
   }
 }
 
+/* --------------------------------------------------------------------------
+   Product Slider Navigation Buttons (Circular Accent Green, Black on Hover)
+   -------------------------------------------------------------------------- */
+.slider-buttons {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 12px !important;
+  margin-top: 28px !important;
+}
+
+.slider-button {
+  color: #000000 !important;
+  background-color: var(--auralink-color-accent, #F2FE63) !important;
+  border: 1px solid rgba(0, 0, 0, 0.08) !important;
+  border-radius: 50% !important;
+  cursor: pointer !important;
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.slider-button:not([disabled]):hover {
+  color: #FFFFFF !important;
+  background-color: #000000 !important;
+  border-color: #000000 !important;
+  transform: scale(1.08) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16) !important;
+}
+
+.slider-button .svg-wrapper {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.slider-button .icon {
+  width: 11px !important;
+  height: 11px !important;
+  transition: transform 0.25s ease !important;
+}
+
+.slider-button[disabled] {
+  opacity: 0.35 !important;
+  cursor: not-allowed !important;
+  box-shadow: none !important;
+}
+
+.slider-button[disabled] .icon {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+.slider-button--next .icon {
+  transform: rotate(-90deg) !important;
+}
+
+.slider-button--prev .icon {
+  transform: rotate(90deg) !important;
+}
+
+.slider-button--next:not([disabled]):hover .icon {
+  transform: rotate(-90deg) scale(1.15) !important;
+}
+
+.slider-button--prev:not([disabled]):hover .icon {
+  transform: rotate(90deg) scale(1.15) !important;
+}
+
+.slider-counter {
+  font-family: 'Inter', var(--font-body-family), sans-serif !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  color: #000000 !important;
+  padding: 0 12px !important;
+  letter-spacing: 0.02em !important;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .product-card-wrapper .card,
   .product-card-wrapper .card__inner img,
