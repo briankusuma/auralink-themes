@@ -232,6 +232,55 @@
         "padding_top": 48,
         "padding_bottom": 64
       }
+    },
+    "collage_xRqRnw": {
+      "type": "collage",
+      "blocks": {
+        "collection_n8eNh8": {
+          "type": "collection",
+          "settings": {
+            "collection": "auralink-ecosystem"
+          }
+        },
+        "image_rFBrgA": {
+          "type": "image",
+          "settings": {}
+        },
+        "product_FCapMz": {
+          "type": "product",
+          "settings": {
+            "product": "",
+            "second_image": false
+          }
+        }
+      },
+      "block_order": [
+        "collection_n8eNh8",
+        "image_rFBrgA",
+        "product_FCapMz"
+      ],
+      "name": "t:sections.collage.presets.name",
+      "settings": {
+        "heading": "Multimedia collage",
+        "heading_size": "h2",
+        "desktop_layout": "right",
+        "mobile_layout": "column",
+        "card_styles": "product-card-wrapper",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "page_BaTy3Q": {
+      "type": "page",
+      "name": "t:sections.page.presets.name",
+      "settings": {
+        "page": "contact",
+        "heading_size": "h1",
+        "color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
@@ -241,6 +290,8 @@
     "auralink_impact",
     "auralink_testimonials_D7it8Y",
     "auralink_cta_HWPeAh",
-    "featured_collection_hRfWkB"
+    "featured_collection_hRfWkB",
+    "collage_xRqRnw",
+    "page_BaTy3Q"
   ]
 }
