@@ -24,24 +24,12 @@
       <div class="menu-drawer__inner-container">
         <div class="menu-drawer__navigation-container">
           <div class="menu-drawer__search">
-            <form action="{{ routes.search_url }}" method="get" role="search" class="search menu-drawer__search-form">
-              <div class="field">
-                <input
-                  class="search__input field__input"
-                  id="Search-In-Drawer"
-                  type="search"
-                  name="q"
-                  value="{{ search.terms | escape }}"
-                  placeholder="{{ 'general.search.search' | t }}"
-                >
-                <label class="visually-hidden" for="Search-In-Drawer">{{ 'general.search.search' | t }}</label>
-                <button type="submit" class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
-                  <span class="svg-wrapper">
-                    {{- 'icon-search.svg' | inline_asset_content -}}
-                  </span>
-                </button>
-              </div>
-            </form>
+            <a href="{{ routes.search_url }}" class="menu-drawer__search-link link focus-inset">
+              <span class="svg-wrapper">
+                {{- 'icon-search.svg' | inline_asset_content -}}
+              </span>
+              <span class="menu-drawer__search-text">{{ 'general.search.search' | t }}</span>
+            </a>
           </div>
           <nav class="menu-drawer__navigation">
             <ul class="menu-drawer__menu has-submenu list-menu" role="list">
