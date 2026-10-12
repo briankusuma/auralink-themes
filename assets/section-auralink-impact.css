@@ -103,7 +103,7 @@
   flex-shrink: 0;
   margin-left: 67px;
   margin-right: 67px;
-  display: block!important;
+  display: block;
 }
 
 /* Quote Text (Figma Node 3069:246) */
@@ -334,7 +334,7 @@ max-width: 200px;
     gap: 24px;
   }
   .auralink-impact-quote-divider {
-    display: none;
+    display: none !important;
   }
   .auralink-impact-author {
     flex-direction: row;

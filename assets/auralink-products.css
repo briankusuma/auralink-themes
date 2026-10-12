@@ -889,31 +889,126 @@ quantity-popover .quantity__input,
   transform: translate(3px, -3px);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 749px) {
+  /* 1. Mobile Slider: Larger cards with attractive peek effect (approx 75% width / 260px-310px) */
+  .slider--tablet.grid--peek .grid__item,
+  .slider--mobile.grid--peek .grid__item,
+  .slider.grid--peek .grid__item,
+  .slider.grid--peek.grid--2-col-tablet-down .grid__item,
+  .slider--tablet.grid--peek.grid--2-col-tablet-down .grid__item {
+    width: calc(75% - 1.2rem) !important;
+    min-width: 250px !important;
+    max-width: 310px !important;
+    flex-shrink: 0 !important;
+  }
+
+  /* 2. Mobile 2-column Grid: Tidy spacing so cards fill width comfortably */
+  .grid.product-grid.grid--2-col-tablet-down:not(.slider) {
+    column-gap: 12px !important;
+    row-gap: 16px !important;
+  }
+
+  .grid.product-grid.grid--2-col-tablet-down:not(.slider) .grid__item {
+    width: calc(50% - 6px) !important;
+    max-width: calc(50% - 6px) !important;
+  }
+
+  /* 3. Card Container & Border Radius */
   .product-card-wrapper .card,
   .collection-card-wrapper .card,
-  .card-wrapper .card {
-    padding: 12px;
-    border-radius: 32px !important;
+  .card-wrapper .card,
+  .contains-card--product .card {
+    padding: 10px !important;
+    border-radius: 22px !important;
   }
 
   .product-card-wrapper .card__inner,
-  .collection-card-wrapper .card__inner {
-    border-radius: 16px;
+  .collection-card-wrapper .card__inner,
+  .card-wrapper .card__inner {
+    border-radius: 16px !important;
+    aspect-ratio: 1.12 !important;
+  }
+
+  /* 4. Badges on Mobile Cards */
+  .auralink-card__badge,
+  .card__badge .badge,
+  .card-wrapper .badge {
+    top: 8px !important;
+    left: 8px !important;
+    font-size: 10px !important;
+    font-weight: 500 !important;
+    padding: 3px 8px !important;
+    border-radius: 20px !important;
+  }
+
+  /* 5. Card Information & Typography (Tidied & Scaled Down for Clean Alignment) */
+  .product-card-wrapper .card__content,
+  .collection-card-wrapper .card__content,
+  .card-wrapper .card__content {
+    padding: 10px 4px 2px !important;
+  }
+
+  .auralink-card__vendor {
+    font-size: 10px !important;
+    margin-bottom: 4px !important;
+    letter-spacing: 0.04em !important;
   }
 
   .product-card-wrapper .card__heading,
-  .collection-card-wrapper .card__heading {
-    font-size: 16px;
+  .collection-card-wrapper .card__heading,
+  .card-wrapper .card__heading,
+  .card__heading.text-card,
+  .text-card {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+    font-weight: 500 !important;
+    letter-spacing: -0.01em !important;
+    margin: 0 0 6px !important;
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+    overflow: hidden !important;
+    min-height: 2.7em !important;
   }
 
-  .auralink-card__price {
-    font-size: 15px;
+  .product-card-wrapper .card__heading a,
+  .collection-card-wrapper .card__heading a,
+  .card-wrapper .card__heading a {
+    font-size: 13px !important;
+    line-height: 1.35 !important;
+  }
+
+  /* 6. Bottom Row: Price & Action Arrow Button */
+  .auralink-card__bottom-row {
+    margin-top: 8px !important;
+    padding-top: 8px !important;
+    gap: 6px !important;
+    align-items: center !important;
+  }
+
+  .auralink-card__price,
+  .card-information .price,
+  .card-information .price-item {
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    letter-spacing: -0.01em !important;
+    line-height: 1.2 !important;
+  }
+
+  .auralink-card__price-compare,
+  .card-information .price__sale .price-item--regular {
+    font-size: 11px !important;
   }
 
   .auralink-card__action-btn {
-    width: 32px;
-    height: 32px;
+    width: 28px !important;
+    height: 28px !important;
+    min-width: 28px !important;
+  }
+
+  .auralink-card__action-btn svg {
+    width: 12px !important;
+    height: 12px !important;
   }
 
   .auralink-view-all-btn {

@@ -313,16 +313,41 @@ header-drawer .header__icon {
   border: 1px solid rgba(0, 0, 0, 0.12);
 }
 
+/* Remove Dawn's default menu backdrop pseudo-element that creates a black bar under the close icon */
+.header__icon--menu::before,
+.header__icon--menu[aria-expanded='true']::before,
+header-drawer details[open] > summary::before,
+header-drawer summary::before,
+.js menu-drawer > details > summary::before,
+.js menu-drawer > details[open] > summary::before {
+  display: none !important;
+  content: none !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+}
+
 /* Clean Compact Mobile Drawer Layout */
+.js .menu-drawer {
+  height: calc(100dvh - var(--header-bottom-position, 64px)) !important;
+  max-height: calc(100dvh - var(--header-bottom-position, 64px)) !important;
+}
+
+.menu-drawer__inner-container {
+  height: 100% !important;
+  max-height: 100% !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
 .menu-drawer__navigation-container {
   display: flex !important;
   flex-direction: column !important;
-  justify-content: flex-start !important;
-  height: auto !important;
-  min-height: 100% !important;
+  justify-content: space-between !important;
+  height: 100% !important;
+  max-height: 100% !important;
   overflow-y: auto !important;
-  padding: 2rem 2.4rem 3.2rem !important;
-  gap: 1.6rem !important;
+  padding: 1.6rem 2rem 2.4rem !important;
+  gap: 1.2rem !important;
   box-sizing: border-box !important;
 }
 
@@ -330,6 +355,7 @@ header-drawer .header__icon {
   padding: 0 !important;
   margin: 0 !important;
   width: 100%;
+  flex-shrink: 0 !important;
 }
 
 .menu-drawer__search-link {
@@ -372,6 +398,7 @@ header-drawer .header__icon {
   padding: 0.8rem 0 !important;
   margin: 0 !important;
   border-top: 1px solid rgba(0, 0, 0, 0.06);
+  flex-grow: 1 !important;
 }
 
 .menu-drawer__menu {
@@ -402,28 +429,29 @@ header-drawer .header__icon {
 
 .menu-drawer__utility-links {
   background: transparent !important;
-  padding: 1.6rem 0 0 !important;
+  padding: 1.2rem 0 0 !important;
   border-top: 1px solid rgba(0, 0, 0, 0.06) !important;
   margin-top: auto !important;
   margin-bottom: 0 !important;
   display: flex !important;
   flex-direction: column !important;
-  gap: 1.2rem !important;
+  gap: 0.8rem !important;
+  flex-shrink: 0 !important;
 }
 
 .menu-drawer__account {
   display: inline-flex !important;
   align-items: center !important;
   justify-content: center !important;
-  gap: 1.2rem !important;
+  gap: 1rem !important;
   padding: 1.2rem 2rem !important;
   text-decoration: none !important;
-  font-size: 1.5rem !important;
+  font-size: 1.4rem !important;
   font-weight: 600 !important;
   color: var(--auralink-color-dark, #000000) !important;
   border-radius: var(--auralink-radius-pill, 100px) !important;
   border: 1px solid rgba(0, 0, 0, 0.12) !important;
-  margin-top: 0.8rem !important;
+  margin-top: 0.4rem !important;
   margin-bottom: 0 !important;
   background: rgba(0, 0, 0, 0.04) !important;
   width: 100% !important;
