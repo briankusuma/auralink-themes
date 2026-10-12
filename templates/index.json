@@ -164,7 +164,7 @@
         "testimonial_czyWRQ",
         "testimonial_U6dxyV"
       ],
-      "name": "AuraLink Reviews",
+      "name": "Customer reviews",
       "settings": {
         "color_scheme": "",
         "heading": "Here’s what people says",
@@ -178,7 +178,7 @@
     },
     "auralink_cta_HWPeAh": {
       "type": "auralink-cta",
-      "name": "AuraLink CTA",
+      "name": "Call to action",
       "settings": {
         "color_scheme": "",
         "default_image": "cta-card-composite.png",
