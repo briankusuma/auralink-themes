@@ -9,7 +9,7 @@
 {%- endstyle -%}
 
 <div class="auralink-testimonials-wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="auralink-testimonials-container">
+  <div class="auralink-testimonials-container{% if section.settings.layout == 'slider_first' %} auralink-testimonials-container--reverse{% endif %}">
     
     {% comment %} Left Column: Section Heading & Case Study Button {% endcomment %}
     <div class="auralink-testimonials__left">
@@ -157,6 +157,22 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Desktop layout",
+      "options": [
+        {
+          "value": "text_first",
+          "label": "Text on left, slider on right"
+        },
+        {
+          "value": "slider_first",
+          "label": "Slider on left, text on right"
+        }
+      ],
+      "default": "text_first"
     },
     {
       "type": "text",
