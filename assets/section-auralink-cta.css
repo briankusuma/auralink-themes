@@ -20,6 +20,33 @@
   box-sizing: border-box;
 }
 
+@media screen and (min-width: 991px) {
+  /* Layout: Text on Left, Image on Right */
+  .auralink-cta-container--text-left {
+    flex-direction: row-reverse;
+  }
+
+  /* Layout: Text on Right, Image on Left (all contents flex-end to the right) */
+  .auralink-cta-container--text-right .auralink-cta__card {
+    align-items: flex-end;
+  }
+
+  .auralink-cta-container--text-right .auralink-cta__content {
+    align-items: flex-end;
+    width: 100%;
+  }
+
+  .auralink-cta-container--text-right .auralink-cta__title,
+  .auralink-cta-container--text-right .auralink-cta__subtitle {
+    text-align: right;
+  }
+
+  .auralink-cta-container--text-right .auralink-cta__actions {
+    justify-content: flex-end;
+    width: 100%;
+  }
+}
+
 /* --------------------------------------------------------------------------
    Left Column: Lime Card with Overlapping Hand Device
    -------------------------------------------------------------------------- */

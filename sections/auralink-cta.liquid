@@ -8,7 +8,7 @@
 {%- endstyle -%}
 
 <div class="auralink-cta-wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="auralink-cta-container">
+  <div class="auralink-cta-container auralink-cta-container--{{ section.settings.layout | default: 'text_right' }}">
     
     {% comment %} Left Column: Hand Holding Smart Device Image {% endcomment %}
     <div class="auralink-cta__media-col">
@@ -82,6 +82,22 @@
       "id": "color_scheme",
       "label": "Color scheme",
       "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Desktop layout",
+      "options": [
+        {
+          "value": "text_right",
+          "label": "Text on right, image on left"
+        },
+        {
+          "value": "text_left",
+          "label": "Text on left, image on right"
+        }
+      ],
+      "default": "text_right"
     },
     {
       "type": "image_picker",
