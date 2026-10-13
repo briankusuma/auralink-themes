@@ -24,6 +24,26 @@
   .auralink-testimonials-container--reverse {
     flex-direction: row-reverse;
   }
+
+  .auralink-testimonials-container--reverse .auralink-testimonials__left {
+    align-items: flex-end;
+    text-align: right;
+  }
+
+  .auralink-testimonials-container--reverse .auralink-testimonials__heading-group {
+    align-items: flex-end;
+  }
+
+  .auralink-testimonials-container--reverse .auralink-testimonials__title,
+  .auralink-testimonials-container--reverse .auralink-testimonials__subtitle {
+    text-align: right;
+  }
+
+  .auralink-testimonials-container--reverse .auralink-testimonials__action-wrap {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+  }
 }
 
 /* --------------------------------------------------------------------------
