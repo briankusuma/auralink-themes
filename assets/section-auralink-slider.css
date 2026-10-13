@@ -188,6 +188,7 @@
   pointer-events: none;
   opacity: 1;
   transition: opacity 0.5s ease;
+  display: block!important;
 }
 
 /* Top-Left Slide Number */
