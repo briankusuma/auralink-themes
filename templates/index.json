@@ -190,6 +190,7 @@
       "name": "Call to action",
       "settings": {
         "color_scheme": "",
+        "layout": "text_right",
         "default_image": "cta-card-composite.png",
         "heading": "Your Journey to Smarter Living Starts with One Click.",
         "subheading": "Discover AI-powered devices that adapt to your lifestyle—bringing comfort, security, and efficiency to every corner of your home.",

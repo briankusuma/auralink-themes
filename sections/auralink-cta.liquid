@@ -8,7 +8,7 @@
 {%- endstyle -%}
 
 <div class="auralink-cta-wrapper color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
-  <div class="auralink-cta-container auralink-cta-container--{{ section.settings.layout | default: 'text_right' }}">
+  <div class="auralink-cta-container{% if section.settings.layout == 'text_left' %} auralink-cta-container--text-left{% else %} auralink-cta-container--text-right{% endif %}">
     
     {% comment %} Left Column: Hand Holding Smart Device Image {% endcomment %}
     <div class="auralink-cta__media-col">
