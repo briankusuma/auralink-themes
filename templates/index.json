@@ -208,6 +208,7 @@
         "tag": "AuraLink Ecosystem",
         "title": "Featured Devices",
         "heading_size": "h1",
+        "heading_alignment": "left",
         "description": "<p>Discover the latest intelligent devices engineered for seamless modern living.</p>",
         "show_description": true,
         "description_style": "body",

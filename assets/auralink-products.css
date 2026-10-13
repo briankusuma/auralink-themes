@@ -850,6 +850,64 @@ quantity-popover .quantity__input,
   margin: 0;
 }
 
+/* Featured Header Text Alignment (Left, Center, Right) */
+.auralink-featured-header--center {
+  text-align: center;
+}
+
+.auralink-featured-header--center .auralink-featured-header__tag-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.auralink-featured-header--center h2.title {
+  text-align: center;
+}
+
+.auralink-featured-header--center .collection__description {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.auralink-featured-header--right {
+  text-align: right;
+}
+
+.auralink-featured-header--right .auralink-featured-header__tag-wrap {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.auralink-featured-header--right h2.title {
+  text-align: right;
+}
+
+.auralink-featured-header--right .collection__description {
+  text-align: right;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.auralink-featured-header--left {
+  text-align: left;
+}
+
+.auralink-featured-header--left .auralink-featured-header__tag-wrap {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.auralink-featured-header--left h2.title {
+  text-align: left;
+}
+
+.auralink-featured-header--left .collection__description {
+  text-align: left;
+  margin-left: 0;
+  margin-right: auto;
+}
+
 .collection__view-all {
   margin-top: 40px;
 }
