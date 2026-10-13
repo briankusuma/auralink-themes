@@ -164,16 +164,9 @@
                 {% endif %}
 
                 {%- if show_language_selector -%}
-                  <localization-form>
-                    {%- form 'localization', id: 'HeaderLanguageMobileForm', class: 'localization-form' -%}
-                      <div>
-                        <h2 class="visually-hidden" id="HeaderLanguageMobileLabel">
-                          {{ 'localization.language_label' | t }}
-                        </h2>
-                        {%- render 'language-localization', localPosition: 'HeaderLanguageMobile' -%}
-                      </div>
-                    {%- endform -%}
-                  </localization-form>
+                  <div class="menu-drawer__language-slider">
+                    {%- render 'auralink-language-slider', local_position: 'Drawer' -%}
+                  </div>
                 {%- endif -%}
               </div>
             {%- endif -%}
