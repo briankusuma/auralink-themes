@@ -286,6 +286,13 @@
   height: 22px;
 }
 
+.header__icon--cart .svg-wrapper,
+.header__icon--cart svg,
+.header__icon--cart .icon {
+  width: 34px;
+  height: 34px;
+}
+
 .cart-count-bubble {
   position: absolute;
   top: -2px;
